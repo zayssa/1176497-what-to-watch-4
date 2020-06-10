@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "../Main/index.jsx";
+import Main from "../main/main.jsx";
 
 
 const App = (data) => {
