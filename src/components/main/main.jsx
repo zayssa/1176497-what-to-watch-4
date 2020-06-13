@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FilmCard from "../film-card/film-card.jsx";
+
 const Main = ({name, genre, date, films}) => {
   return (
     <>
@@ -121,15 +123,8 @@ const Main = ({name, genre, date, films}) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {films.map((film) => (
-              <article className="small-movie-card catalog__movies-card" key={`film-${film}`}>
-                <div className="small-movie-card__image">
-                  <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">{film}</a>
-                </h3>
-              </article>
+            {films.map((film, idx) => (
+              <FilmCard film={film} key={`film-${idx}-${film}`} />
             ))}
           </div>
 
