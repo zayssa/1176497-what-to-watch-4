@@ -3,8 +3,13 @@ import Main from "../main/main.jsx";
 
 
 const App = (data) => {
+  const onFilmTitleClick = () => {};
+
   return (
-    <Main {...data} />
+    <Main
+      {...data}
+      onFilmTitleClick={onFilmTitleClick}
+    />
   );
 };
 
