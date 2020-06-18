@@ -12,8 +12,13 @@ it(`FilmTitleClick`, () => {
 
   const filmCard = shallow(
       <FilmCard
-        film="film"
+        film={{
+          id: 1,
+          title: `Some film`,
+          poster: `img/avatar.jpg`
+        }}
         onTitleClick={onTitleClick}
+        onPosterHover={() => {}}
       />
   );
 
@@ -22,4 +27,29 @@ it(`FilmTitleClick`, () => {
   title.props().onClick();
 
   expect(onTitleClick.mock.calls.length).toBe(1);
+});
+
+it(`FilmPosterHover`, () => {
+  const film = {
+    id: 1,
+    title: `Some film`,
+    poster: `img/avatar.jpg`
+  };
+  let result;
+
+  const filmCard = shallow(
+      <FilmCard
+        film={film}
+        onTitleClick={() => {}}
+        onPosterHover={(data) => {
+          result = data;
+        }}
+      />
+  );
+
+  const poster = filmCard.find(`.small-movie-card__image`);
+
+  poster.props().onMouseEnter();
+
+  expect(result).toBe(film);
 });

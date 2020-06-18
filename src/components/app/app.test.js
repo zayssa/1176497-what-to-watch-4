@@ -8,26 +8,29 @@ it(`Render App`, () => {
     genre: `bugaga`,
     date: `2026`,
     films: [
-      `Fantastic Beasts: The Crimes of Grindelwald`,
-      `Bohemian Rhapsody`,
-      `Macbeth`,
-      `Aviator`,
-      `We need to talk about Kevin`,
-      `What We Do in the Shadows`,
-      `Revenant`,
-      `Johnny English`,
-      `Shutter Island`,
-      `Pulp Fiction`,
-      `No Country for Old Men`,
-      `Snatch`,
-      `Moonrise Kingdom`,
-      `Seven Years in Tibet`,
-      `Midnight Special`,
-      `War of the Worlds`,
-      `Dardjeeling Limited`,
-      `Orlando`,
-      `Mindhunter`,
-      `Midnight Specialist`
+      {
+        id: 1,
+        title: `Titanic`,
+        poster: `img/titanic.jpg`
+      },
+
+      {
+        id: 2,
+        title: `Back to the future`,
+        poster: `img/back.jpg`
+      },
+
+      {
+        id: 3,
+        title: `Academy`,
+        poster: `img/academy.jpg`
+      },
+
+      {
+        id: 4,
+        title: `Moana`,
+        poster: `img/moana.jpg`
+      },
     ]
   };
 

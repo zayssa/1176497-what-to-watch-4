@@ -8,26 +8,29 @@ it(`Render Main`, () => {
     genre: `bugaga`,
     date: `2026`,
     films: [
-      `Fantastic Beasts: The Crimes of Grindelwald`,
-      `Bohemian Rhapsody`,
-      `Macbeth`,
-      `Aviator`,
-      `We need to talk about Kevin`,
-      `What We Do in the Shadows`,
-      `Revenant`,
-      `Johnny English`,
-      `Shutter Island`,
-      `Pulp Fiction`,
-      `No Country for Old Men`,
-      `Snatch`,
-      `Moonrise Kingdom`,
-      `Seven Years in Tibet`,
-      `Midnight Special`,
-      `War of the Worlds`,
-      `Dardjeeling Limited`,
-      `Orlando`,
-      `Mindhunter`,
-      `Midnight Specialist`
+      {
+        id: 1,
+        title: `Aviator`,
+        poster: `img/aviator.jpg`
+      },
+
+      {
+        id: 2,
+        title: `BraveHeart`,
+        poster: `img/braveheart.jpg`
+      },
+
+      {
+        id: 3,
+        title: `Aurella`,
+        poster: `img/aurella.jpg`
+      },
+
+      {
+        id: 4,
+        title: `Pinokkio`,
+        poster: `img/pinokkio.jpg`
+      },
     ]
   };
 
