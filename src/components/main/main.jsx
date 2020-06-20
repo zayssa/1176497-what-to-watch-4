@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FilmCard from "../film-card/film-card.jsx";
+import FilmsList from "../films-list/films-list.jsx";
 
 const Main = ({name, genre, date, films, onFilmTitleClick}) => {
 
@@ -123,15 +123,7 @@ const Main = ({name, genre, date, films, onFilmTitleClick}) => {
             </li>
           </ul>
 
-          <div className="catalog__movies-list">
-            {films.map((film, idx) => (
-              <FilmCard
-                key={`film-${idx}-${film}`}
-                film={film}
-                onTitleClick={onFilmTitleClick}
-              />
-            ))}
-          </div>
+          <FilmsList films={films} onFilmTitleClick={onFilmTitleClick} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -160,7 +152,13 @@ Main.propTypes = {
   name: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  films: PropTypes.arrayOf(PropTypes.string).isRequired,
+  films: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        poster: PropTypes.string.isRequired
+      })
+  ).isRequired,
   onFilmTitleClick: PropTypes.func.isRequired
 };
 

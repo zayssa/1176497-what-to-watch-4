@@ -6,11 +6,12 @@ exports[`Render FilmCard 1`] = `
 >
   <div
     className="small-movie-card__image"
+    onMouseEnter={[Function]}
   >
     <img
-      alt="Fantastic Beasts: The Crimes of Grindelwald"
+      alt="cat"
       height="175"
-      src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      src="img/avatar.jpg"
       width="280"
     />
   </div>
@@ -20,9 +21,9 @@ exports[`Render FilmCard 1`] = `
   >
     <a
       className="small-movie-card__link"
-      href="movie-page.html"
+      href="/films/3"
     >
-      Some film title
+      cat
     </a>
   </h3>
 </article>

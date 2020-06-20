@@ -5,8 +5,13 @@ import FilmCard from "./film-card.jsx";
 it(`Render FilmCard`, () => {
   const tree = renderer
     .create(<FilmCard
-      film="Some film title"
+      film={{
+        id: 3,
+        title: `cat`,
+        poster: `img/avatar.jpg`
+      }}
       onTitleClick={() => {}}
+      onPosterHover={() => {}}
     />)
     .toJSON();
 
