@@ -25,7 +25,7 @@ class FilmsList extends React.PureComponent {
             key={`film-${idx}-${film}`}
             film={film}
             onTitleClick={this.props.onFilmTitleClick.bind(this, film)}
-            onPosterHover={this.setActiveFilm.bind(this, film)}
+            onPosterHover={this.setActiveFilm.bind(this)}
           />
         ))}
       </div>
