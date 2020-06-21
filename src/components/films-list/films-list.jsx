@@ -24,8 +24,8 @@ class FilmsList extends React.PureComponent {
           <FilmCard
             key={`film-${idx}-${film}`}
             film={film}
-            onTitleClick={this.props.onFilmTitleClick.bind(this)}
-            onPosterHover={this.setActiveFilm.bind(this)}
+            onTitleClick={this.props.onFilmTitleClick.bind(this, film)}
+            onPosterHover={this.setActiveFilm.bind(this, film)}
           />
         ))}
       </div>
@@ -38,7 +38,15 @@ FilmsList.propTypes = {
       PropTypes.shape({
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired
+        poster: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired,
+        count: PropTypes.number.isRequired,
+        bg: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        director: PropTypes.string.isRequired,
+        actors: PropTypes.string.isRequired,
       })
   ),
   onFilmTitleClick: PropTypes.func.isRequired

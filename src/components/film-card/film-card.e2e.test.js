@@ -24,9 +24,9 @@ it(`FilmTitleClick`, () => {
 
   const title = filmCard.find(`.small-movie-card__title`);
 
-  title.props().onClick();
+  title.simulate(`click`);
 
-  expect(onTitleClick.mock.calls.length).toBe(1);
+  expect(onTitleClick).toHaveBeenCalledTimes(1);
 });
 
 it(`FilmPosterHover`, () => {
@@ -49,7 +49,7 @@ it(`FilmPosterHover`, () => {
 
   const poster = filmCard.find(`.small-movie-card__image`);
 
-  poster.props().onMouseEnter();
+  poster.simulate(`mouseenter`);
 
-  expect(result).toBe(film);
+  expect(result).toMatchObject(film);
 });
