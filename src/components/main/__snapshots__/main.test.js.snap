@@ -370,12 +370,13 @@ Array [
         >
           <div
             className="small-movie-card__image"
+            onClick={[Function]}
             onMouseEnter={[Function]}
           >
             <img
-              alt="Aviator"
+              alt="Bersek"
               height="175"
-              src="img/aviator.jpg"
+              src="img/avatar.jpg"
               width="280"
             />
           </div>
@@ -387,85 +388,7 @@ Array [
               className="small-movie-card__link"
               href="/films/1"
             >
-              Aviator
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-            onMouseEnter={[Function]}
-          >
-            <img
-              alt="BraveHeart"
-              height="175"
-              src="img/braveheart.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-            onClick={[Function]}
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/2"
-            >
-              BraveHeart
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-            onMouseEnter={[Function]}
-          >
-            <img
-              alt="Aurella"
-              height="175"
-              src="img/aurella.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-            onClick={[Function]}
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/3"
-            >
-              Aurella
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-            onMouseEnter={[Function]}
-          >
-            <img
-              alt="Pinokkio"
-              height="175"
-              src="img/pinokkio.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-            onClick={[Function]}
-          >
-            <a
-              className="small-movie-card__link"
-              href="/films/4"
-            >
-              Pinokkio
+              Bersek
             </a>
           </h3>
         </article>
