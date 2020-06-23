@@ -9,12 +9,13 @@ exports[`Render FilmsList 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
       onMouseEnter={[Function]}
     >
       <img
-        alt="blablabla"
+        alt="Look"
         height="175"
-        src="img/aviator.jpg"
+        src="img/avatar.jpg"
         width="280"
       />
     </div>
@@ -24,9 +25,9 @@ exports[`Render FilmsList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="/films/2"
+        href="/films/1"
       >
-        blablabla
+        Look
       </a>
     </h3>
   </article>
