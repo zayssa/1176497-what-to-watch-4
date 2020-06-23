@@ -34,8 +34,8 @@ class App extends React.PureComponent {
               />
             )}
           </Route>
-          <Route path="/films/:id" exact>
-            <MoviePage film={this.state.currentFilm} />
+          <Route path="/dev-films" exact>
+            <MoviePage film={this.props.films[0]} />
           </Route>
         </Switch>
       </BrowserRouter>
