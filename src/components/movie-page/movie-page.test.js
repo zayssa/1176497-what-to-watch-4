@@ -23,6 +23,7 @@ it(`Render MoviePage`, () => {
     the recipient of a priceless painting and the chief suspect in her murder.`,
         director: `Paul Benning`,
         actors: `Sam Smith, Oko Saka, Eddy Eagl, Samanta Smith and other`,
+        preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
       }}
     />)
     .toJSON();

@@ -8,6 +8,7 @@ exports[`Render FilmCard 1`] = `
     className="small-movie-card__image"
     onClick={[Function]}
     onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
   >
     <img
       alt="Gravity"

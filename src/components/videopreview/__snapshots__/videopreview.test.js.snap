@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Videopreview 1`] = `
+<video
+  autoPlay={true}
+  muted={true}
+  src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+  style={
+    Object {
+      "bottom": 0,
+      "height": "auto",
+      "left": 0,
+      "margin": "auto",
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+      "width": "100%",
+    }
+  }
+/>
+`;

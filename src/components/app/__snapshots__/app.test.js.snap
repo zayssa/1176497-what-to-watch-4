@@ -372,6 +372,7 @@ Array [
             className="small-movie-card__image"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Stone"
@@ -399,6 +400,7 @@ Array [
             className="small-movie-card__image"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Back to the future"
@@ -426,6 +428,7 @@ Array [
             className="small-movie-card__image"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Academy"
@@ -453,6 +456,7 @@ Array [
             className="small-movie-card__image"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <img
               alt="Moana"
