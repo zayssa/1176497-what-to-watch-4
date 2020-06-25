@@ -30,6 +30,7 @@ it(`FilmTitleClick`, () => {
           the recipient of a priceless painting and the chief suspect in her murder.`,
           director: `Ashton Kutcher`,
           actors: `Zoe Saldana, Jamie Lee Curtis, James Woods and other`,
+          preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
         }}
         onTitleClick={onTitleClick}
         onPosterHover={() => {}}
@@ -66,6 +67,7 @@ it(`FilmPosterClick`, () => {
           the recipient of a priceless painting and the chief suspect in her murder.`,
           director: `Joe Dassan`,
           actors: `Silvestor Stallone, Kim Rise  and other`,
+          preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
         }}
         onTitleClick={onPosterClick}
         onPosterHover={() => {}}
@@ -99,6 +101,7 @@ it(`FilmPosterHover`, () => {
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Santa Claus`,
     actors: `Val Kilmer, Dakota Fanning, Monica Bellucci, Jason Momoa and other`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   };
   let result;
 
@@ -116,5 +119,7 @@ it(`FilmPosterHover`, () => {
 
   poster.simulate(`mouseenter`);
 
-  expect(result).toMatchObject(film);
+  setTimeout(() => {
+    expect(result).toMatchObject(film);
+  }, 1000);
 });

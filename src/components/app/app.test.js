@@ -26,6 +26,7 @@ it(`Render App`, () => {
         the recipient of a priceless painting and the chief suspect in her murder.`,
         director: `Luke Goss`,
         actors: `Maggie Q,  Sean Penn, Nikolaj Coster-Waldau and other`,
+        preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
       },
 
       {
@@ -46,6 +47,7 @@ it(`Render App`, () => {
         the recipient of a priceless painting and the chief suspect in her murder.`,
         director: `Carla Gugino`,
         actors: `Lena Headey, Milos Bikovic, Juju Chan, Channing Tatum and other`,
+        preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
       },
 
       {
@@ -66,6 +68,7 @@ it(`Render App`, () => {
         the recipient of a priceless painting and the chief suspect in her murder.`,
         director: `Ben Kingsley`,
         actors: `Jennifer Love Hewitt, Wesley Snipes, Ed Harris and other`,
+        preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
       },
 
       {
@@ -86,6 +89,7 @@ it(`Render App`, () => {
         the recipient of a priceless painting and the chief suspect in her murder.`,
         director: `Til Schweiger`,
         actors: `Christopher Plummer, Kevin Zegers, Tim Roth, Jessica Alba and other`,
+        preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
       },
     ]
   };

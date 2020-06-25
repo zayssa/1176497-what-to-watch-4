@@ -17,6 +17,7 @@ export const films = [
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Paul Benning`,
     actors: `Sam Smith, Oko Saka, Eddy Eagl, Samanta Smith and other`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
 
   {
@@ -37,6 +38,7 @@ export const films = [
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Cris Pratt`,
     actors: `Tom Ford, Liza Cudrow, Pamela Anderson, Alex D, Crazy Frog and other`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
 
   {
@@ -57,6 +59,7 @@ export const films = [
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Olivia Wild`,
     actors: `Luck Perry, Mattew Key, Shakira, Kira Nightly, Bred Pitt, Dima Bilan and other`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
 
   {
@@ -77,6 +80,7 @@ export const films = [
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Joe Kok`,
     actors: `Idris Elba, Cameron Diaz, Edward Norton, Jack Nicolson and other`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
 
   {
@@ -97,6 +101,7 @@ export const films = [
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Oscar Dega`,
     actors: `Leonardo DiCaprio, Leonardo Da Vinci,Sandra Bullock, David Backham and other`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
 
   {
@@ -117,6 +122,7 @@ export const films = [
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Amanda Seyfried`,
     actors: `Kevin Bacon, Jason Gedrick, Tom Hardy, Denzel Washington, Jason Statham and other`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
   },
 
   {
@@ -137,6 +143,7 @@ export const films = [
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Ryan Reynolds`,
     actors: `Dwayne Johnson, Johnny Depp, Chris Hemsworth,  Jackie Chan, Charlize Theron and other`,
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   },
 
   {
@@ -157,6 +164,7 @@ export const films = [
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Bruce Willis`,
     actors: `Nicolas Cage, Ana de Armas, Kate Beckinsale,  Keanu Reeves, Anthony Hopkins, Liam Neeson and other`,
+    preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
 
   },
 ];

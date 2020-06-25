@@ -23,6 +23,7 @@ it(`Render FilmsList`, () => {
         the recipient of a priceless painting and the chief suspect in her murder.`,
         director: `Billy Zane`,
         actors: `Sherilyn Fenn, Michelle Rodriguez, Patrick Swayze and other`,
+        preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
       }]}
       onFilmTitleClick={() => {}}
     />)

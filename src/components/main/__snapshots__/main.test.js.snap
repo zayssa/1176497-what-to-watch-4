@@ -372,12 +372,24 @@ Array [
             className="small-movie-card__image"
             onClick={[Function]}
             onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
-            <img
-              alt="Bersek"
-              height="175"
-              src="img/avatar.jpg"
-              width="280"
+            <video
+              muted={true}
+              poster="img/avatar.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": "auto",
+                  "left": 0,
+                  "margin": "auto",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
             />
           </div>
           <h3

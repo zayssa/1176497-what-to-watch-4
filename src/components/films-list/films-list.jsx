@@ -47,6 +47,7 @@ FilmsList.propTypes = {
         text: PropTypes.string.isRequired,
         director: PropTypes.string.isRequired,
         actors: PropTypes.string.isRequired,
+        preview: PropTypes.string.isRequired,
       })
   ),
   onFilmTitleClick: PropTypes.func.isRequired

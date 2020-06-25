@@ -31,6 +31,7 @@ it(`FilmTitleClick`, () => {
         the recipient of a priceless painting and the chief suspect in her murder.`,
         director: ` Lochlyn Munro`,
         actors: ` Claire Forlani,  Jeffrey Dean Morgan, Teresa Palmer,  Leslie Nielsen and other`,
+        preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
       }
     ]
   };
