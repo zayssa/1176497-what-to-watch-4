@@ -6,6 +6,7 @@ it(`Render Videopreview`, () => {
   const tree = renderer
     .create(<Videopreview
       preview="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+      poster="img/avatar.jpg"
     />)
     .toJSON();
 

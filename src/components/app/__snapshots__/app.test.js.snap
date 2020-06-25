@@ -374,11 +374,22 @@ Array [
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
           >
-            <img
-              alt="Stone"
-              height="175"
-              src="img/avatar.jpg"
-              width="280"
+            <video
+              muted={true}
+              poster="img/avatar.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": "auto",
+                  "left": 0,
+                  "margin": "auto",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
             />
           </div>
           <h3
@@ -402,11 +413,22 @@ Array [
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
           >
-            <img
-              alt="Back to the future"
-              height="175"
-              src="img/back.jpg"
-              width="280"
+            <video
+              muted={true}
+              poster="img/back.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": "auto",
+                  "left": 0,
+                  "margin": "auto",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
             />
           </div>
           <h3
@@ -430,11 +452,22 @@ Array [
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
           >
-            <img
-              alt="Academy"
-              height="175"
-              src="img/academy.jpg"
-              width="280"
+            <video
+              muted={true}
+              poster="img/academy.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": "auto",
+                  "left": 0,
+                  "margin": "auto",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
             />
           </div>
           <h3
@@ -458,11 +491,22 @@ Array [
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
           >
-            <img
-              alt="Moana"
-              height="175"
-              src="img/moana.jpg"
-              width="280"
+            <video
+              muted={true}
+              poster="img/moana.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": "auto",
+                  "left": 0,
+                  "margin": "auto",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
             />
           </div>
           <h3
