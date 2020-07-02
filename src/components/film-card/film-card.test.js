@@ -23,6 +23,7 @@ it(`Render FilmCard`, () => {
         the recipient of a priceless painting and the chief suspect in her murder.`,
         director: `Juliette Binoche`,
         actors: `Ray Liotta, Iggy Pop, Sean Bean and other`,
+        preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
       }}
       onTitleClick={() => {}}
       onPosterHover={() => {}}
