@@ -12,6 +12,21 @@ class Tabs extends React.PureComponent {
     this.state = {
       activeTab: `overview`
     };
+
+    this.tabs = [
+      {
+        value: `overview`,
+        label: `Overview`
+      },
+      {
+        value: `details`,
+        label: `Details`
+      },
+      {
+        value: `review`,
+        label: `Review`
+      },
+    ];
   }
 
   render() {
@@ -19,24 +34,14 @@ class Tabs extends React.PureComponent {
       <div className="movie-card__desc">
         <nav className="movie-nav movie-card__nav">
           <ul className="movie-nav__list">
-            <li className={`movie-nav__item ${this.state.activeTab === `overview` ? `movie-nav__item--active` : ``}`}>
-              <a href="#" onClick={(evt) => {
-                evt.preventDefault();
-                this.setState({activeTab: `overview`});
-              }} className="movie-nav__link">Overview</a>
-            </li>
-            <li className={`movie-nav__item ${this.state.activeTab === `details` ? `movie-nav__item--active` : ``}`}>
-              <a href="#" onClick={(evt) => {
-                evt.preventDefault();
-                this.setState({activeTab: `details`});
-              }} className="movie-nav__link">Details</a>
-            </li>
-            <li className={`movie-nav__item ${this.state.activeTab === `reviews` ? `movie-nav__item--active` : ``}`}>
-              <a href="#" onClick={(evt) => {
-                evt.preventDefault();
-                this.setState({activeTab: `reviews`});
-              }} className="movie-nav__link">Reviews</a>
-            </li>
+            {this.tabs.map((tab) => (
+              <li key={`tabs-tab-${tab.value}`} className={`movie-nav__item ${this.state.activeTab === tab.value ? `movie-nav__item--active` : ``}`}>
+                <a href="#" onClick={(evt) => {
+                  evt.preventDefault();
+                  this.setState({activeTab: tab.value});
+                }} className="movie-nav__link">{tab.label}</a>
+              </li>
+            ))}
           </ul>
         </nav>
 
