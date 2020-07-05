@@ -29,8 +29,28 @@ it(`FilmTitleClick`, () => {
           When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
           the recipient of a priceless painting and the chief suspect in her murder.`,
           director: `Ashton Kutcher`,
-          actors: `Zoe Saldana, Jamie Lee Curtis, James Woods and other`,
+          actors: [`Zoe Saldana`, `Jamie Lee Curtis`, `James Woods and other`, `Luke Evans`, `Gerard Butler`],
           preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+          runtime: 75,
+          comments: [
+            {
+              author: `Kate Muir`,
+              text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+              date: new Date(2016, 11, 24),
+              rating: 8.9
+            },
+            {
+              author: `Bill Goodykoontz`,
+              text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+              date: new Date(2015, 10, 13),
+              rating: 8.0
+            },
+            {
+              author: `Amanda Greever`,
+              text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+              date: new Date(2015, 11, 24),
+              rating: 7.2
+            }],
         }}
         onTitleClick={onTitleClick}
         onPosterHover={() => {}}
@@ -66,8 +86,28 @@ it(`FilmPosterClick`, () => {
           When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
           the recipient of a priceless painting and the chief suspect in her murder.`,
           director: `Joe Dassan`,
-          actors: `Silvestor Stallone, Kim Rise  and other`,
+          actors: [`Silvestor Stallone`, `Kim Rise`, `Ralph Fiennes`, `Daniel Craig`],
           preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
+          runtime: 125,
+          comments: [
+            {
+              author: `Kate Muir`,
+              text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+              date: new Date(2016, 11, 24),
+              rating: 8.9
+            },
+            {
+              author: `Bill Goodykoontz`,
+              text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+              date: new Date(2015, 9, 24),
+              rating: 8.0
+            },
+            {
+              author: `Amanda Greever`,
+              text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+              date: new Date(2015, 10, 29),
+              rating: 7.2
+            }],
         }}
         onTitleClick={onPosterClick}
         onPosterHover={() => {}}
@@ -100,8 +140,28 @@ it(`FilmPosterHover`, () => {
     When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
     the recipient of a priceless painting and the chief suspect in her murder.`,
     director: `Santa Claus`,
-    actors: `Val Kilmer, Dakota Fanning, Monica Bellucci, Jason Momoa and other`,
+    actors: [`Val Kilmer`, `Dakota Fanning`, `Monica Bellucci`, `Jason Momoa`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 102,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 24),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 11, 18),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 24),
+        rating: 7.2
+      }],
   };
   let result;
 
