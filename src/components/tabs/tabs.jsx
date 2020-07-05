@@ -48,7 +48,6 @@ class Tabs extends React.PureComponent {
         {this.state.activeTab === `details` ? <DetailsTab film={this.props.film} /> : null}
         {this.state.activeTab === `reviews` ? <ReviewsTab film={this.props.film} /> : null}
         {this.state.activeTab === `overview` ? <OverviewTab film={this.props.film} /> : null}
-
       </div>
     );
   }
