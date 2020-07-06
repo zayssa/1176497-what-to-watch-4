@@ -1,26 +1,18 @@
 import React from "react";
-import Enzyme, {mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import App from "./app.jsx";
+import renderer from "react-test-renderer";
+import Tabs from "./tabs.jsx";
 
-Enzyme.configure({
-  adapter: new Adapter()
-});
-
-it(`FilmTitleClick`, () => {
-  const data = {
-    name: `crcrcr`,
-    genre: `qwe`,
-    date: `1990`,
-    films: [
-      {
+it(`Render Tabs`, () => {
+  const tree = renderer
+    .create(<Tabs
+      film={{
         id: 1,
-        title: `Raven`,
+        title: `Look`,
         poster: `img/avatar.jpg`,
-        genre: `Sci-Fi`,
-        year: `1939`,
-        rating: 9.9,
-        count: 250,
+        genre: `Comedy`,
+        year: `2002`,
+        rating: 7.6,
+        count: 178,
         bg: `img/bg-the-grand-budapest-hotel.jpg`,
         text: `In the 1930s, the Grand Budapest Hotel is a popular
         European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
@@ -29,41 +21,34 @@ it(`FilmTitleClick`, () => {
         including satisfying the sexual needs of the many elderly women who stay there.
         When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
         the recipient of a priceless painting and the chief suspect in her murder.`,
-        director: `Lochlyn Munro`,
-        actors: [`Claire Forlani`, `Jeffrey Dean Morgan`, `Teresa Palmer`, `Leslie Nielsen`],
+        director: `Billy Zane`,
+        actors: [`Sherilyn Fenn`, `Michelle Rodriguez`, `Patrick Swayze`, `Benedict Cumberbatch`, `Emily Blunt`],
         preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-        runtime: 78,
+        runtime: 102,
         comments: [
           {
             author: `Kate Muir`,
             text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-            date: new Date(2016, 11, 24),
+            date: new Date(2015, 10, 15),
             rating: 8.9
           },
           {
             author: `Bill Goodykoontz`,
             text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-            date: new Date(2015, 10, 15),
+            date: new Date(2016, 10, 23),
             rating: 8.0
           },
           {
             author: `Amanda Greever`,
             text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-            date: new Date(2015, 8, 10),
+            date: new Date(2015, 10, 15),
             rating: 7.2
-          },
+          }
         ]
-      }
-    ]
-  };
+      }}
+    />)
+    .toJSON();
 
-  const app = mount(
-      <App {...data} />
-  );
-
-  const title = app.find(`.small-movie-card__title`);
-
-  title.simulate(`click`);
-
-  expect(app.state().currentFilm).toMatchObject(data.films[0]);
+  expect(tree).toMatchSnapshot();
 });
+

@@ -4,6 +4,7 @@ import {Switch, Route, BrowserRouter} from "react-router-dom";
 import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 
+import {IFilm} from "../../types/film";
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -26,7 +27,11 @@ class App extends React.PureComponent {
         <Switch>
           <Route path="/" exact>
             {this.state.currentFilm ? (
-              <MoviePage film={this.state.currentFilm}/>
+              <MoviePage
+                film={this.state.currentFilm}
+                films={this.props.films}
+                onFilmTitleClick={this.onFilmTitleClick.bind(this)}
+              />
             ) : (
               <Main
                 {...this.props}
@@ -35,7 +40,11 @@ class App extends React.PureComponent {
             )}
           </Route>
           <Route path="/dev-films" exact>
-            <MoviePage film={this.props.films[0]} />
+            <MoviePage
+              film={this.props.films[0]}
+              films={this.props.films}
+              onFilmTitleClick={this.onFilmTitleClick.bind(this)}
+            />
           </Route>
         </Switch>
       </BrowserRouter>
@@ -48,21 +57,8 @@ App.propTypes = {
   genre: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        year: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired,
-        count: PropTypes.number.isRequired,
-        bg: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
-        director: PropTypes.string.isRequired,
-        actors: PropTypes.string.isRequired,
-        preview: PropTypes.string.isRequired,
-      })
-  )
+      IFilm
+  ).isRequired
 };
 
 export default App;
