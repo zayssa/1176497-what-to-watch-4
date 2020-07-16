@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import FilmCard from "../film-card/film-card.jsx";
 
+import {IFilm} from "../../types/film";
+
 class FilmsList extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -18,9 +20,13 @@ class FilmsList extends React.PureComponent {
   }
 
   render() {
+    const filmsList = this.props.genre ? this.props.films.filter((film) => (
+      !this.props.genre || film.genre === this.props.genre
+    )).slice(0, 4) : this.props.films;
+
     return (
       <div className="catalog__movies-list">
-        {this.props.films.map((film, idx) => (
+        {filmsList.map((film, idx) => (
           <FilmCard
             key={`film-${idx}-${film}`}
             film={film}
@@ -35,22 +41,10 @@ class FilmsList extends React.PureComponent {
 
 FilmsList.propTypes = {
   films: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        year: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired,
-        count: PropTypes.number.isRequired,
-        bg: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
-        director: PropTypes.string.isRequired,
-        actors: PropTypes.string.isRequired,
-        preview: PropTypes.string.isRequired,
-      })
-  ),
-  onFilmTitleClick: PropTypes.func.isRequired
+      IFilm
+  ).isRequired,
+  onFilmTitleClick: PropTypes.func.isRequired,
+  genre: PropTypes.string
 };
 
 export default FilmsList;

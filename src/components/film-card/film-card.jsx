@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Videopreview from "../videopreview/videopreview.jsx";
 
+import {IFilm} from "../../types/film";
+
 class FilmCard extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -10,14 +12,17 @@ class FilmCard extends React.PureComponent {
       isActive: false
     };
     this.timeout = null;
+    this.mounted = true;
   }
 
   delayedHover() {
-    this.timeout = setTimeout(()=>{
-      this.props.onPosterHover(this.props.film);
-      this.setState({
-        isActive: true
-      });
+    this.timeout = setTimeout(() => {
+      if (this.mounted) {
+        this.props.onPosterHover(this.props.film);
+        this.setState({
+          isActive: true
+        });
+      }
     }, 1000);
   }
 
@@ -26,6 +31,10 @@ class FilmCard extends React.PureComponent {
       isActive: false
     });
     clearTimeout(this.timeout);
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   render() {
@@ -43,20 +52,7 @@ class FilmCard extends React.PureComponent {
 }
 
 FilmCard.propTypes = {
-  film: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    count: PropTypes.number.isRequired,
-    bg: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    actors: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
-  }),
+  film: IFilm.isRequired,
   onTitleClick: PropTypes.func.isRequired,
   onPosterHover: PropTypes.func.isRequired
 };
