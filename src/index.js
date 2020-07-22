@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 import {films} from "./mocks/films";
 import App from "./components/app/app.jsx";
+import {reducer} from "./reducer.js";
 
 const data = {
   name: `Pila`,
@@ -10,7 +13,11 @@ const data = {
   films
 };
 
+const store = createStore(reducer);
+
 ReactDOM.render(
-    <App {...data} />,
+    <Provider store={store}>
+      <App {...data} />
+    </Provider>,
     document.querySelector(`#root`)
 );
