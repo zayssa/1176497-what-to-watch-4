@@ -1,6 +1,9 @@
 import React from "react";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 import renderer from "react-test-renderer";
 import App from "./app.jsx";
+import {reducer} from "../../reducer";
 
 it(`Render App`, () => {
   const data = {
@@ -174,11 +177,14 @@ it(`Render App`, () => {
     ]
   };
 
+  const store = createStore(reducer);
+
   const tree = renderer
-    .create(<App
-      {...data}
-    />)
-    .toJSON();
+    .create(
+        <Provider store={store}>
+          <App {...data} />
+        </Provider>
+    ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

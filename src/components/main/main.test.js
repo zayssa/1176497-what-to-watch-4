@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "./main.jsx";
+import {Main} from "./main.jsx";
 
 it(`Render Main`, () => {
   const data = {
@@ -48,7 +48,9 @@ it(`Render Main`, () => {
             rating: 7.2
           }],
       }
-    ]
+    ],
+    currentGenre: `comedy`,
+    setGenre: () => {}
   };
 
   const tree = renderer

@@ -1,7 +1,10 @@
 import React from "react";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import App from "./app.jsx";
+import {reducer} from "../../reducer";
 
 Enzyme.configure({
   adapter: new Adapter()
@@ -56,14 +59,17 @@ it(`FilmTitleClick`, () => {
       }
     ]
   };
+  const store = createStore(reducer);
 
   const app = mount(
-      <App {...data} />
+      <Provider store={store}>
+        <App {...data} />
+      </Provider>
   );
 
   const title = app.find(`.small-movie-card__title`);
 
   title.simulate(`click`);
 
-  expect(app.state().currentFilm).toMatchObject(data.films[0]);
+  expect(app.find(App).state().currentFilm).toMatchObject(data.films[0]);
 });
