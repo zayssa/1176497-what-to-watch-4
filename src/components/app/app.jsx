@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
-import {Main} from "../main/main.jsx";
+import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 
 import {IFilm} from "../../types/film";
