@@ -9,7 +9,7 @@ class FilmsList extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.FILMS_PER_PAGE = 1;
+    this.FILMS_PER_PAGE = 8;
 
     this.state = {
       activeFilm: null,

@@ -359,17 +359,123 @@ Array [
             </a>
           </h3>
         </article>
-      </div>
-      <div
-        className="catalog__more"
-      >
-        <button
-          className="catalog__button"
-          onClick={[Function]}
-          type="button"
+        <article
+          className="small-movie-card catalog__movies-card"
         >
-          Show more
-        </button>
+          <div
+            className="small-movie-card__image"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <video
+              muted={true}
+              poster="img/back.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": "auto",
+                  "left": 0,
+                  "margin": "auto",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+            onClick={[Function]}
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/2"
+            >
+              Back to the future
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+        >
+          <div
+            className="small-movie-card__image"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <video
+              muted={true}
+              poster="img/academy.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": "auto",
+                  "left": 0,
+                  "margin": "auto",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+            onClick={[Function]}
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/3"
+            >
+              Academy
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+        >
+          <div
+            className="small-movie-card__image"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <video
+              muted={true}
+              poster="img/moana.jpg"
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+              style={
+                Object {
+                  "bottom": 0,
+                  "height": "auto",
+                  "left": 0,
+                  "margin": "auto",
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
+            />
+          </div>
+          <h3
+            className="small-movie-card__title"
+            onClick={[Function]}
+          >
+            <a
+              className="small-movie-card__link"
+              href="/films/4"
+            >
+              Moana
+            </a>
+          </h3>
+        </article>
       </div>
     </section>
     <footer
