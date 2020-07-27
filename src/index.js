@@ -5,6 +5,7 @@ import {Provider} from "react-redux";
 import {films} from "./mocks/films";
 import App from "./components/app/app.jsx";
 import {reducer} from "./reducer.js";
+import withActiveItem from "./components/hocs/with-active-item/with-active-item.jsx";
 
 const data = {
   name: `Pila`,
@@ -14,10 +15,11 @@ const data = {
 };
 
 const store = createStore(reducer);
+const AppWrapped = withActiveItem(App);
 
 ReactDOM.render(
     <Provider store={store}>
-      <App {...data} />
+      <AppWrapped {...data} />
     </Provider>,
     document.querySelector(`#root`)
 );

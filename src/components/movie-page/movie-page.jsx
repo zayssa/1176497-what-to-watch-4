@@ -1,11 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Tabs from "../tabs/tabs.jsx";
-import {IFilm} from '../../types/film';
 import FilmsList from '../films-list/films-list.jsx';
+import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
+
+import {IFilm} from '../../types/film';
 
 
 const MoviePage = ({film, films, onFilmTitleClick}) => {
+  const TabsWrapped = withActiveItem(Tabs);
+
   return (
     <>
       <div className="visually-hidden">
@@ -94,7 +98,7 @@ const MoviePage = ({film, films, onFilmTitleClick}) => {
               <img src={film.poster} alt={`${film.title} poster`} width="218" height="327" />
             </div>
 
-            <Tabs film={film} />
+            <TabsWrapped film={film} />
           </div>
         </div>
       </section>

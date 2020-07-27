@@ -6,12 +6,17 @@ import {ActionCreator} from "../../reducer";
 
 import FilmsList from "../films-list/films-list.jsx";
 import {GenresList} from "../genres-list/genres-list.jsx";
+import withPage from "../hocs/with-page/with-page.jsx";
+import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
+
 import {IFilm} from "../../types/film";
 
 const Main = ({name, genre, date, films, onFilmTitleClick, currentGenre, setGenre}) => {
 
   const genres = Array.from(new Set(films.map((film) => (film.genre))));
   genres.unshift(`All genres`);
+
+  const FilmsListWrapped = withActiveItem(withPage(FilmsList));
 
   return (
     <>
@@ -100,7 +105,7 @@ const Main = ({name, genre, date, films, onFilmTitleClick, currentGenre, setGenr
 
           <GenresList genres={genres} currentGenre={currentGenre} setGenre={setGenre} />
 
-          <FilmsList
+          <FilmsListWrapped
             films={films}
             onMainPage
             genre={currentGenre !== `All genres` ? currentGenre : undefined}

@@ -6,51 +6,35 @@ import MoviePage from "../movie-page/movie-page.jsx";
 
 import {IFilm} from "../../types/film";
 
-class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentFilm: null
-    };
-  }
-
-  onFilmTitleClick(film) {
-    this.setState({
-      currentFilm: film
-    });
-  }
-
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact>
-            {this.state.currentFilm ? (
-              <MoviePage
-                film={this.state.currentFilm}
-                films={this.props.films}
-                onFilmTitleClick={this.onFilmTitleClick.bind(this)}
-              />
-            ) : (
-              <Main
-                {...this.props}
-                onFilmTitleClick={this.onFilmTitleClick.bind(this)}
-              />
-            )}
-          </Route>
-          <Route path="/dev-films" exact>
+const App = (props) => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact>
+          {props.activeItem ? (
             <MoviePage
-              film={this.props.films[0]}
-              films={this.props.films}
-              onFilmTitleClick={this.onFilmTitleClick.bind(this)}
+              film={props.activeItem}
+              films={props.films}
+              onFilmTitleClick={props.setActiveItem}
             />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+          ) : (
+            <Main
+              {...props}
+              onFilmTitleClick={props.setActiveItem}
+            />
+          )}
+        </Route>
+        <Route path="/dev-films" exact>
+          <MoviePage
+            film={props.films[0]}
+            films={props.films}
+            onFilmTitleClick={props.setActiveItem}
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 App.propTypes = {
   name: PropTypes.string.isRequired,
@@ -58,7 +42,9 @@ App.propTypes = {
   date: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(
       IFilm
-  ).isRequired
+  ).isRequired,
+  activeItem: IFilm || null,
+  setActiveItem: PropTypes.func
 };
 
 export default App;
