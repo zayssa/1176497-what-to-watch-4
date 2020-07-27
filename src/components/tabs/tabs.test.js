@@ -46,6 +46,8 @@ it(`Render Tabs`, () => {
           }
         ]
       }}
+      activeItem="overview"
+      setActiveItem={() => {}}
     />)
     .toJSON();
 

@@ -2,7 +2,9 @@
 import React from 'react';
 
 const MockComponent = () => {
-  return (<div />);
+  return (
+    <div />
+  );
 };
 
 export default MockComponent;

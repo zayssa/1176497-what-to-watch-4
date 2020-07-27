@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import withActiveState from "../with-active-state";
-import MockComponent from "../../../mocks/mock-component.js";
+import withActiveState from "./with-active-state.jsx";
+import MockComponent from "../../../mocks/mock-component.jsx";
 
 const MockComponentWrapped = withActiveState(MockComponent);
 

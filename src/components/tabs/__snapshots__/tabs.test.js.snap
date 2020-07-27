@@ -40,7 +40,7 @@ exports[`Render Tabs 1`] = `
           href="#"
           onClick={[Function]}
         >
-          Review
+          Reviews
         </a>
       </li>
     </ul>

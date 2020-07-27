@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import withPage from "../with-page";
-import MockComponent from "../../../mocks/mock-component.js";
+import withPage from "./with-page.jsx";
+import MockComponent from "../../../mocks/mock-component.jsx";
 
 const MockComponentWrapped = withPage(MockComponent);
 

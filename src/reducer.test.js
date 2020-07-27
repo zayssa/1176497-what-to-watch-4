@@ -1,5 +1,5 @@
 import {reducer, ActionCreator, ActionType} from "./reducer.js";
-import films from './mocks/films';
+import {films} from './mocks/films';
 import {extend} from './utils';
 
 const initialState = {
