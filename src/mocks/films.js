@@ -335,4 +335,508 @@ export const films = [
     ]
 
   },
+
+  {
+    id: 1001,
+    title: `Fair Game`,
+    poster: `img/macbeth.jpg`,
+    genre: `Sci-Fi`,
+    year: `2001`,
+    rating: 6.3,
+    count: 155,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 120,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 1010,
+    title: `Die hard`,
+    poster: `img/war-of-the-worlds.jpg`,
+    genre: `Comedy`,
+    year: `2001`,
+    rating: 6.3,
+    count: 155,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 120,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 1011,
+    title: `You Don't Know Jack`,
+    poster: `img/orlando.jpg`,
+    genre: `Comedy`,
+    year: `2019`,
+    rating: 8.1,
+    count: 245,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 126,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 1100,
+    title: `Tower Heist`,
+    poster: `img/dardjeeling-limited.jpg`,
+    genre: `Documentary`,
+    year: `2013`,
+    rating: 9.9,
+    count: 305,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 1101,
+    title: `RRrrrr!`,
+    poster: `img/pulp-fiction.jpg`,
+    genre: `Crime`,
+    year: `1949`,
+    rating: 5.6,
+    count: 185,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 1111,
+    title: `The Hangover!`,
+    poster: `img/revenant.jpg`,
+    genre: `Kids&Family`,
+    year: `1987`,
+    rating: 4.6,
+    count: 145,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 10000,
+    title: `Hitch`,
+    poster: `img/shutter-island.jpg`,
+    genre: `Horror`,
+    year: `1999`,
+    rating: 7.5,
+    count: 198,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 10001,
+    title: `The Ring`,
+    poster: `img/seven-years-in-tibet.jpg`,
+    genre: `Romance`,
+    year: `1939`,
+    rating: 3.2,
+    count: 78,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 10010,
+    title: `Shark Tale`,
+    poster: `img/player-poster.jpg`,
+    genre: `Romance`,
+    year: `2011`,
+    rating: 4.1,
+    count: 102,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 10011,
+    title: `Over the Hedge`,
+    poster: `img/no-country-for-old-men.jpg`,
+    genre: `Kids&Family`,
+    year: `2009`,
+    rating: 5.6,
+    count: 136,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 10100,
+    title: `Kill Speed`,
+    poster: `img/johnny-english.jpg`,
+    genre: `Crime`,
+    year: `1997`,
+    rating: 8.5,
+    count: 219,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
+
+  {
+    id: 10101,
+    title: `The Internship`,
+    poster: `img/bohemian-rhapsody.jpg`,
+    genre: `Documentary`,
+    year: `1985`,
+    rating: 8.5,
+    count: 219,
+    bg: `img/bg-the-grand-budapest-hotel.jpg`,
+    text: `In the 1930s, the Grand Budapest Hotel is a popular
+    European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
+    Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
+    Gustave prides himself on providing first-class service to the hotel&apos;s guests,
+    including satisfying the sexual needs of the many elderly women who stay there.
+    When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
+    the recipient of a priceless painting and the chief suspect in her murder.`,
+    director: `Olivia Wild`,
+    actors: [`Luck Perry`, `Mattew Key`, `Shakira`, `Kira Nightly`, `Bred Pitt`, `Dima Bilan`],
+    preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
+    runtime: 89,
+    comments: [
+      {
+        author: `Kate Muir`,
+        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
+        date: new Date(2016, 11, 10),
+        rating: 8.9
+      },
+      {
+        author: `Bill Goodykoontz`,
+        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
+        date: new Date(2015, 8, 15),
+        rating: 8.0
+      },
+      {
+        author: `Amanda Greever`,
+        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
+        date: new Date(2016, 11, 10),
+        rating: 7.2
+      },
+    ]
+  },
 ];

@@ -100,11 +100,13 @@ const Main = ({name, genre, date, films, onFilmTitleClick, currentGenre, setGenr
 
           <GenresList genres={genres} currentGenre={currentGenre} setGenre={setGenre} />
 
-          <FilmsList films={films} genre={currentGenre !== `All genres` ? currentGenre : undefined} onFilmTitleClick={onFilmTitleClick} />
+          <FilmsList
+            films={films}
+            onMainPage
+            genre={currentGenre !== `All genres` ? currentGenre : undefined}
+            onFilmTitleClick={onFilmTitleClick}
+          />
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
         </section>
 
         <footer className="page-footer">
