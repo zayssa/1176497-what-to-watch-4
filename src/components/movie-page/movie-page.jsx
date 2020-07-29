@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Tabs from "../tabs/tabs.jsx";
-import FilmsList from '../films-list/films-list.jsx';
+import FilmsList from "../films-list/films-list.jsx";
 import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
 
-import {IFilm} from '../../types/film';
+import {IFilm} from "../../types/film";
 
 
-const MoviePage = ({film, films, onFilmTitleClick}) => {
+const MoviePage = ({film, films, onFilmTitleClick, onPlay}) => {
   const TabsWrapped = withActiveItem(Tabs);
 
   return (
@@ -74,7 +74,7 @@ const MoviePage = ({film, films, onFilmTitleClick}) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button className="btn btn--play movie-card__button" type="button" onClick={onPlay}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
@@ -137,7 +137,8 @@ MoviePage.propTypes = {
   films: PropTypes.arrayOf(
       IFilm
   ),
-  onFilmTitleClick: PropTypes.func.isRequired
+  onFilmTitleClick: PropTypes.func.isRequired,
+  onPlay: PropTypes.func
 };
 
 export default MoviePage;

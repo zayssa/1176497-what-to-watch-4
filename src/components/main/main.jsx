@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
 import {ActionCreator} from "../../reducer";
@@ -11,7 +11,7 @@ import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
 
 import {IFilm} from "../../types/film";
 
-const Main = ({name, genre, date, films, onFilmTitleClick, currentGenre, setGenre}) => {
+const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPlay}) => {
 
   const genres = Array.from(new Set(films.map((film) => (film.genre))));
   genres.unshift(`All genres`);
@@ -70,18 +70,18 @@ const Main = ({name, genre, date, films, onFilmTitleClick, currentGenre, setGenr
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={activeItem.poster} alt={`${activeItem.title} poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{name}</h2>
+              <h2 className="movie-card__title">{activeItem.title}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{date}</span>
+                <span className="movie-card__genre">{activeItem.genre}</span>
+                <span className="movie-card__year">{activeItem.date}</span>
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button className="btn btn--play movie-card__button" type="button" onClick={onPlay}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s" />
                   </svg>
@@ -111,7 +111,6 @@ const Main = ({name, genre, date, films, onFilmTitleClick, currentGenre, setGenr
             genre={currentGenre !== `All genres` ? currentGenre : undefined}
             onFilmTitleClick={onFilmTitleClick}
           />
-
         </section>
 
         <footer className="page-footer">
@@ -133,15 +132,14 @@ const Main = ({name, genre, date, films, onFilmTitleClick, currentGenre, setGenr
 };
 
 Main.propTypes = {
-  name: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  activeItem: IFilm,
   films: PropTypes.arrayOf(
       IFilm
   ).isRequired,
   onFilmTitleClick: PropTypes.func.isRequired,
   currentGenre: PropTypes.string.isRequired,
-  setGenre: PropTypes.func.isRequired
+  setGenre: PropTypes.func.isRequired,
+  onPlay: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
