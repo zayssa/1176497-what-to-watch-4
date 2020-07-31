@@ -48,6 +48,7 @@ it(`Render FilmCard`, () => {
       }}
       onTitleClick={() => {}}
       onPosterHover={() => {}}
+      setActiveState={() => {}}
     />)
     .toJSON();
 

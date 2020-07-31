@@ -49,47 +49,50 @@ const film = {
     }],
 };
 
-it(`Tabs default statement`, () => {
-
-  const tabs = shallow(
-      <Tabs film={film}/>
-  );
-
-  expect(tabs.state().activeTab === `overview`);
-});
-
 it(`Click on details tab`, () => {
+  let tab = `overview`;
+  const setTab = (data) => {
+    tab = data;
+  };
 
   const tabs = shallow(
-      <Tabs film={film}/>
+      <Tabs film={film} activeItem={tab} setActiveItem={setTab} />
   );
 
   const detailsTab = tabs.find(`.movie-nav__item`).at(1);
   detailsTab.simulate(`click`);
 
-  expect(tabs.state().activeTab === `details`);
+  expect(tab === `details`);
 });
 
 it(`Click on overview tab`, () => {
+  let tab = `overview`;
+  const setTab = (data) => {
+    tab = data;
+  };
 
   const tabs = shallow(
-      <Tabs film={film}/>
+      <Tabs film={film} activeItem={tab} setActiveItem={setTab} />
   );
 
   const overviewTab = tabs.find(`.movie-nav__item`).at(0);
   overviewTab.simulate(`click`);
 
-  expect(tabs.state().activeTab === `overview`);
+  expect(tab === `overview`);
 });
 
 it(`Click on review tab`, () => {
+  let tab = `overview`;
+  const setTab = (data) => {
+    tab = data;
+  };
 
   const tabs = shallow(
-      <Tabs film={film}/>
+      <Tabs film={film} activeItem={tab} setActiveItem={setTab} />
   );
 
   const reviewTab = tabs.find(`.movie-nav__item`).at(2);
   reviewTab.simulate(`click`);
 
-  expect(tabs.state().activeTab === `review`);
+  expect(tab === `review`);
 });

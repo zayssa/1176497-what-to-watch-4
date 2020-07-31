@@ -177,9 +177,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Bersek poster"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="img/avatar.jpg"
             width="218"
           />
         </div>
@@ -189,7 +189,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            atata
+            Bersek
           </h2>
           <p
             className="movie-card__meta"
@@ -197,13 +197,11 @@ Array [
             <span
               className="movie-card__genre"
             >
-              bugaga
+              Horror
             </span>
             <span
               className="movie-card__year"
-            >
-              2026
-            </span>
+            />
           </p>
           <div
             className="movie-card__buttons"
@@ -280,7 +278,7 @@ Array [
             href="#"
             onClick={[Function]}
           >
-            Horror
+            Comedy
           </a>
         </li>
       </ul>

@@ -1,6 +1,6 @@
 import {reducer, ActionCreator, ActionType} from "./reducer.js";
-import films from './mocks/films';
-import {extend} from './utils';
+import {films} from "./mocks/films";
+import {extend} from "./utils/extend.js";
 
 const initialState = {
   genre: `All genres`,

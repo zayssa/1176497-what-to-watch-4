@@ -8,9 +8,6 @@ class FilmCard extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isActive: false
-    };
     this.timeout = null;
     this.mounted = true;
   }
@@ -19,17 +16,13 @@ class FilmCard extends React.PureComponent {
     this.timeout = setTimeout(() => {
       if (this.mounted) {
         this.props.onPosterHover(this.props.film);
-        this.setState({
-          isActive: true
-        });
+        this.props.setActiveState(true);
       }
     }, 1000);
   }
 
   clearDelayedHover() {
-    this.setState({
-      isActive: false
-    });
+    this.props.setActiveState(false);
     clearTimeout(this.timeout);
   }
 
@@ -40,11 +33,21 @@ class FilmCard extends React.PureComponent {
   render() {
     return (
       <article className="small-movie-card catalog__movies-card">
-        <div className="small-movie-card__image" onMouseEnter={this.delayedHover.bind(this)} onMouseLeave={this.clearDelayedHover.bind(this)} onClick={this.props.onTitleClick.bind(this)}>
-          <Videopreview preview={this.props.film.preview} poster={this.props.film.poster} isActive={this.state.isActive}/>
+        <div className="small-movie-card__image"
+          onMouseEnter={this.delayedHover.bind(this)}
+          onMouseLeave={this.clearDelayedHover.bind(this)}
+          onClick={this.props.onTitleClick.bind(this)}
+        >
+          <Videopreview
+            preview={this.props.film.preview}
+            poster={this.props.film.poster}
+            isActive={this.props.isActiveState}
+          />
         </div>
         <h3 className="small-movie-card__title" onClick={this.props.onTitleClick.bind(this)}>
-          <a className="small-movie-card__link" href={`/films/${this.props.film.id}`}>{this.props.film.title}</a>
+          <a className="small-movie-card__link" href={`/films/${this.props.film.id}`}>
+            {this.props.film.title}
+          </a>
         </h3>
       </article>
     );
@@ -54,7 +57,9 @@ class FilmCard extends React.PureComponent {
 FilmCard.propTypes = {
   film: IFilm.isRequired,
   onTitleClick: PropTypes.func.isRequired,
-  onPosterHover: PropTypes.func.isRequired
+  onPosterHover: PropTypes.func.isRequired,
+  isActiveState: PropTypes.bool,
+  setActiveState: PropTypes.func
 };
 
 export default FilmCard;

@@ -3,54 +3,61 @@ import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
+import Videoplayer from "../videoplayer/videoplayer.jsx";
+import withVideoplayer from "../hocs/with-videoplayer/with-videoplayer.jsx";
 
 import {IFilm} from "../../types/film";
 
-class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
+const App = (props) => {
+  const VideoplayerWrapped = withVideoplayer(Videoplayer);
 
-    this.state = {
-      currentFilm: null
-    };
-  }
+  const onPlay = () => {
+    props.setActiveState(true);
+  };
 
-  onFilmTitleClick(film) {
-    this.setState({
-      currentFilm: film
-    });
-  }
+  const activeItem = props.activeItem || props.films[0];
 
-  render() {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact>
-            {this.state.currentFilm ? (
-              <MoviePage
-                film={this.state.currentFilm}
-                films={this.props.films}
-                onFilmTitleClick={this.onFilmTitleClick.bind(this)}
-              />
-            ) : (
-              <Main
-                {...this.props}
-                onFilmTitleClick={this.onFilmTitleClick.bind(this)}
-              />
-            )}
-          </Route>
-          <Route path="/dev-films" exact>
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact>
+          {props.activeItem ? (
             <MoviePage
-              film={this.props.films[0]}
-              films={this.props.films}
-              onFilmTitleClick={this.onFilmTitleClick.bind(this)}
+              film={props.activeItem}
+              films={props.films}
+              onFilmTitleClick={props.setActiveItem}
+              onPlay={onPlay}
             />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+          ) : (
+            <Main
+              {...props}
+              onFilmTitleClick={props.setActiveItem}
+              onPlay={onPlay}
+              activeItem={activeItem}
+            />
+          )}
+        </Route>
+        <Route path="/dev-films" exact>
+          <MoviePage
+            film={props.films[0]}
+            films={props.films}
+            onFilmTitleClick={props.setActiveItem}
+            onPlay={onPlay}
+          />
+        </Route>
+      </Switch>
+      <VideoplayerWrapped
+        title={activeItem.title}
+        poster={activeItem.poster}
+        source={activeItem.preview}
+        isActiveState={props.isActiveState}
+        onExit={() => {
+          props.setActiveState(false);
+        }}
+      />
+    </BrowserRouter>
+  );
+};
 
 App.propTypes = {
   name: PropTypes.string.isRequired,
@@ -58,7 +65,11 @@ App.propTypes = {
   date: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(
       IFilm
-  ).isRequired
+  ).isRequired,
+  activeItem: IFilm || null,
+  setActiveItem: PropTypes.func,
+  isActiveState: PropTypes.bool,
+  setActiveState: PropTypes.func
 };
 
 export default App;
