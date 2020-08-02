@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 
-import {ActionCreator} from "../../reducer";
+import {ActionCreator} from "../../reducer/reducer";
+import {getGenre} from "../../reducer/selectors";
 
 import FilmsList from "../films-list/films-list.jsx";
 import {GenresList} from "../genres-list/genres-list.jsx";
@@ -46,7 +47,7 @@ const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPl
 
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={activeItem.bg} alt={activeItem.title} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -77,7 +78,7 @@ const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPl
               <h2 className="movie-card__title">{activeItem.title}</h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">{activeItem.genre}</span>
-                <span className="movie-card__year">{activeItem.date}</span>
+                <span className="movie-card__year">{activeItem.year}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -143,7 +144,7 @@ Main.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  currentGenre: state.genre
+  currentGenre: getGenre(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

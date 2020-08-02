@@ -3,13 +3,13 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 import renderer from "react-test-renderer";
 import App from "./app.jsx";
-import {reducer} from "../../reducer";
+import {reducers} from "../../reducer//reducer";
+import {createAPI} from "../../api";
+
+const api = createAPI();
 
 it(`Render App`, () => {
   const data = {
-    name: `atata`,
-    genre: `bugaga`,
-    date: `2026`,
     films: [
       {
         id: 1,
@@ -31,25 +31,10 @@ it(`Render App`, () => {
         actors: [`Maggie Q`, `Sean Penn`, `Nikolaj Coster-Waldau`, `Ewan McGregor`, `Tilda Swinton`],
         preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
         runtime: 90,
-        comments: [
-          {
-            author: `Kate Muir`,
-            text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-            date: new Date(2015, 10, 15),
-            rating: 8.9
-          },
-          {
-            author: `Bill Goodykoontz`,
-            text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-            date: new Date(2016, 7, 23),
-            rating: 8.0
-          },
-          {
-            author: `Amanda Greever`,
-            text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-            date: new Date(2016, 5, 17),
-            rating: 7.2
-          }],
+        previewImage: `img/the-grand-budapest-hotel.jpg`,
+        bgColor: `#ffffff`,
+        videoLink: `https://some-link`,
+        isFavorite: false
       },
 
       {
@@ -72,25 +57,10 @@ it(`Render App`, () => {
         actors: [`Lena Headey`, `Milos Bikovic`, `Juju Chan`, `Channing Tatum`, `Helena Bonham Carter`],
         preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
         runtime: 90,
-        comments: [
-          {
-            author: `Kate Muir`,
-            text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-            date: new Date(2015, 10, 15),
-            rating: 8.9
-          },
-          {
-            author: `Bill Goodykoontz`,
-            text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-            date: new Date(2016, 11, 29),
-            rating: 8.0
-          },
-          {
-            author: `Amanda Greever`,
-            text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-            date: new Date(2015, 11, 11),
-            rating: 7.2
-          }],
+        previewImage: `img/the-grand-budapest-hotel.jpg`,
+        bgColor: `#ffffff`,
+        videoLink: `https://some-link`,
+        isFavorite: true
       },
 
       {
@@ -113,25 +83,10 @@ it(`Render App`, () => {
         actors: [`Jennifer Love Hewitt`, `Wesley Snipes`, `Ed Harris`, `Christian Bale`, `Martin Freeman`],
         preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
         runtime: 102,
-        comments: [
-          {
-            author: `Kate Muir`,
-            text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-            date: new Date(2016, 7, 11),
-            rating: 8.9
-          },
-          {
-            author: `Bill Goodykoontz`,
-            text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-            date: new Date(2016, 11, 25),
-            rating: 8.0
-          },
-          {
-            author: `Amanda Greever`,
-            text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-            date: new Date(2017, 7, 26),
-            rating: 7.2
-          }],
+        previewImage: `img/the-grand-budapest-hotel.jpg`,
+        bgColor: `#ffffff`,
+        videoLink: `https://some-link`,
+        isFavorite: true
       },
 
       {
@@ -154,35 +109,20 @@ it(`Render App`, () => {
         actors: [`Christopher Plummer`, `Kevin Zegers`, `Tim Roth`, `Jessica Alba`],
         preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
         runtime: 98,
-        comments: [
-          {
-            author: `Kate Muir`,
-            text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-            date: new Date(2016, 10, 15),
-            rating: 8.9
-          },
-          {
-            author: `Bill Goodykoontz`,
-            text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-            date: new Date(2016, 9, 10),
-            rating: 8.0
-          },
-          {
-            author: `Amanda Greever`,
-            text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-            date: new Date(2016, 11, 23),
-            rating: 7.2
-          }],
+        previewImage: `img/the-grand-budapest-hotel.jpg`,
+        bgColor: `#ffffff`,
+        videoLink: `https://some-link`,
+        isFavorite: false
       },
     ]
   };
 
-  const store = createStore(reducer);
+  const store = createStore(reducers);
 
   const tree = renderer
     .create(
         <Provider store={store}>
-          <App {...data} activeItem={null} setActiveItem={() => {}} />
+          <App {...data} api={api} activeItem={null} setActiveItem={() => {}} />
         </Provider>
     ).toJSON();
 
