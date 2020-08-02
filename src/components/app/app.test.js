@@ -182,7 +182,7 @@ it(`Render App`, () => {
   const tree = renderer
     .create(
         <Provider store={store}>
-          <App {...data} />
+          <App {...data} activeItem={null} setActiveItem={() => {}} />
         </Provider>
     ).toJSON();
 

@@ -60,10 +60,14 @@ it(`FilmTitleClick`, () => {
     ]
   };
   const store = createStore(reducer);
+  let activeItem = null;
+  const setActiveItem = (item) => {
+    activeItem = item;
+  };
 
   const app = mount(
       <Provider store={store}>
-        <App {...data} />
+        <App {...data} activeItem={activeItem} setActiveItem={setActiveItem} />
       </Provider>
   );
 
@@ -71,5 +75,5 @@ it(`FilmTitleClick`, () => {
 
   title.simulate(`click`);
 
-  expect(app.find(App).state().currentFilm).toMatchObject(data.films[0]);
+  expect(activeItem).toMatchObject(data.films[0]);
 });

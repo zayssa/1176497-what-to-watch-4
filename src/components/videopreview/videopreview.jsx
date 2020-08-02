@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 class Videopreview extends React.PureComponent {
   constructor(props) {
     super(props);
+
     this.videoRef = React.createRef();
   }
 

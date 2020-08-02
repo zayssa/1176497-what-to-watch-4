@@ -177,9 +177,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="The Grand Budapest Hotel poster"
+            alt="Stone poster"
             height="327"
-            src="img/the-grand-budapest-hotel-poster.jpg"
+            src="img/avatar.jpg"
             width="218"
           />
         </div>
@@ -189,7 +189,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            atata
+            Stone
           </h2>
           <p
             className="movie-card__meta"
@@ -197,19 +197,18 @@ Array [
             <span
               className="movie-card__genre"
             >
-              bugaga
+              Drama
             </span>
             <span
               className="movie-card__year"
-            >
-              2026
-            </span>
+            />
           </p>
           <div
             className="movie-card__buttons"
           >
             <button
               className="btn btn--play movie-card__button"
+              onClick={[Function]}
               type="button"
             >
               <svg
