@@ -1,6 +1,9 @@
 import React from "react";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 import renderer from "react-test-renderer";
 import {Main} from "./main.jsx";
+import {reducers} from "../../reducer/reducer";
 
 it(`Render Main`, () => {
   const data = {
@@ -60,11 +63,15 @@ it(`Render Main`, () => {
     setGenre: () => {}
   };
 
+  const store = createStore(reducers);
+
   const tree = renderer
-    .create(<Main
-      {...data}
-      onFilmTitleClick={() => {}}
-    />)
+    .create(<Provider store={store}>
+      <Main
+        {...data}
+        onFilmTitleClick={() => {}}
+      />
+    </Provider>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

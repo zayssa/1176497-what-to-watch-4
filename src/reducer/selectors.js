@@ -9,6 +9,10 @@ export const getGenre = (state) => {
   return state[REDUCERS.CURRENT_GENRE].currentGenre;
 };
 
+export const getAuthStatus = (state) => {
+  return state[REDUCERS.USER].authorizationStatus;
+};
+
 export const filmsByGenre = createSelector(
     getFilms,
     getGenre,

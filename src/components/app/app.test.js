@@ -3,7 +3,7 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 import renderer from "react-test-renderer";
 import App from "./app.jsx";
-import {reducers} from "../../reducer//reducer";
+import {reducers} from "../../reducer/reducer";
 import {createAPI} from "../../api";
 
 const api = createAPI();
