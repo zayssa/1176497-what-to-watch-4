@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Render App 1`] = `
-<div>
-  fuck you Spielberg
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "100vh",
+      "justifyContent": "center",
+    }
+  }
+>
+  Loading...
 </div>
 `;
