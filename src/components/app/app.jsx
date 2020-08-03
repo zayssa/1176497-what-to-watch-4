@@ -60,7 +60,7 @@ const App = (props) => {
         }}
       />
     </BrowserRouter>
-  ) : <div>fuck you Spielberg</div>;
+  ) : <div style={{height: `100vh`, display: `flex`, justifyContent: `center`, alignItems: `center`}}>Loading...</div>;
 };
 
 App.propTypes = {
