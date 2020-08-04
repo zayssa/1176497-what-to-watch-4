@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import Tabs from "../tabs/tabs.jsx";
 import FilmsList from "../films-list/films-list.jsx";
 import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
+import SiteHeader from "../site-header/site-header.jsx";
 
 import {IFilm} from "../../types/film";
 
 
-const MoviePage = ({film, films, onFilmTitleClick, onPlay}) => {
+const MoviePage = ({film, films, onFilmTitleClick, onPlay, api}) => {
   const TabsWrapped = withActiveItem(Tabs);
 
   return (
@@ -47,23 +48,7 @@ const MoviePage = ({film, films, onFilmTitleClick, onPlay}) => {
             <img src={film.bg} alt={film.title} />
           </div>
 
-          <h1 className="visually-hidden">WTW</h1>
-
-          <header className="page-header movie-card__head">
-            <div className="logo">
-              <a href="main.html" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </a>
-            </div>
-
-            <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-              </div>
-            </div>
-          </header>
+          <SiteHeader />
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
@@ -98,7 +83,7 @@ const MoviePage = ({film, films, onFilmTitleClick, onPlay}) => {
               <img src={film.poster} alt={`${film.title} poster`} width="218" height="327" />
             </div>
 
-            <TabsWrapped film={film} />
+            <TabsWrapped film={film} api={api} />
           </div>
         </div>
       </section>
@@ -138,7 +123,8 @@ MoviePage.propTypes = {
       IFilm
   ),
   onFilmTitleClick: PropTypes.func.isRequired,
-  onPlay: PropTypes.func
+  onPlay: PropTypes.func,
+  api: PropTypes.any.isRequired
 };
 
 export default MoviePage;

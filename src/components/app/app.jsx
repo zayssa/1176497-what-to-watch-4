@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {getFilms} from "../../reducer/selectors";
 import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import Videoplayer from "../videoplayer/videoplayer.jsx";
@@ -17,7 +19,7 @@ const App = (props) => {
 
   const activeItem = props.activeItem || props.films[0];
 
-  return (
+  return props.films.length ? (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
@@ -27,6 +29,7 @@ const App = (props) => {
               films={props.films}
               onFilmTitleClick={props.setActiveItem}
               onPlay={onPlay}
+              api={props.api}
             />
           ) : (
             <Main
@@ -43,33 +46,39 @@ const App = (props) => {
             films={props.films}
             onFilmTitleClick={props.setActiveItem}
             onPlay={onPlay}
+            api={props.api}
           />
         </Route>
       </Switch>
       <VideoplayerWrapped
         title={activeItem.title}
         poster={activeItem.poster}
-        source={activeItem.preview}
+        source={activeItem.videoLink}
         isActiveState={props.isActiveState}
         onExit={() => {
           props.setActiveState(false);
         }}
       />
     </BrowserRouter>
-  );
+  ) : <div style={{height: `100vh`, display: `flex`, justifyContent: `center`, alignItems: `center`}}>Loading...</div>;
 };
 
 App.propTypes = {
-  name: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
   films: PropTypes.arrayOf(
       IFilm
   ).isRequired,
   activeItem: IFilm || null,
   setActiveItem: PropTypes.func,
   isActiveState: PropTypes.bool,
-  setActiveState: PropTypes.func
+  setActiveState: PropTypes.func,
+  api: PropTypes.any.isRequired
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  films: getFilms(state)
+});
+
+const mapDispatchToProps = () => ({});
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);

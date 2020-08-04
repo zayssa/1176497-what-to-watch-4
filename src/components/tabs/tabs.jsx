@@ -24,6 +24,14 @@ class Tabs extends React.PureComponent {
         label: `Reviews`
       },
     ];
+
+    this.comments = [];
+  }
+
+  componentDidMount() {
+    this.props.api.get(`/comments/${this.props.film.id}`).then((response) => {
+      this.comments = response.data;
+    });
   }
 
   render() {
@@ -43,7 +51,7 @@ class Tabs extends React.PureComponent {
         </nav>
 
         {this.props.activeItem === `details` ? <DetailsTab film={this.props.film} /> : null}
-        {this.props.activeItem === `reviews` ? <ReviewsTab film={this.props.film} /> : null}
+        {this.props.activeItem === `reviews` ? <ReviewsTab comments={this.comments} /> : null}
         {this.props.activeItem === `overview` || !this.props.activeItem ? <OverviewTab film={this.props.film} /> : null}
       </div>
     );
@@ -53,7 +61,8 @@ class Tabs extends React.PureComponent {
 Tabs.propTypes = {
   film: IFilm.isRequired,
   activeItem: PropTypes.string,
-  setActiveItem: PropTypes.func
+  setActiveItem: PropTypes.func,
+  api: PropTypes.any
 };
 
 export default Tabs;
