@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {ActionCreator} from "../../reducer/reducer";
 import {getGenre} from "../../reducer/selectors";
 
+import SiteHeader from "../site-header/site-header.jsx";
 import FilmsList from "../films-list/films-list.jsx";
 import {GenresList} from "../genres-list/genres-list.jsx";
 import withPage from "../hocs/with-page/with-page.jsx";
@@ -50,23 +51,7 @@ const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPl
           <img src={activeItem.bg} alt={activeItem.title} />
         </div>
 
-        <h1 className="visually-hidden">WTW</h1>
-
-        <header className="page-header movie-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
-        </header>
+        <SiteHeader />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
