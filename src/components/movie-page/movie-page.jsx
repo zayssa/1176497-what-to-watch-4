@@ -7,7 +7,7 @@ import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
 import {IFilm} from "../../types/film";
 
 
-const MoviePage = ({film, films, onFilmTitleClick, onPlay}) => {
+const MoviePage = ({film, films, onFilmTitleClick, onPlay, api}) => {
   const TabsWrapped = withActiveItem(Tabs);
 
   return (
@@ -98,7 +98,7 @@ const MoviePage = ({film, films, onFilmTitleClick, onPlay}) => {
               <img src={film.poster} alt={`${film.title} poster`} width="218" height="327" />
             </div>
 
-            <TabsWrapped film={film} />
+            <TabsWrapped film={film} api={api} />
           </div>
         </div>
       </section>
@@ -138,7 +138,8 @@ MoviePage.propTypes = {
       IFilm
   ),
   onFilmTitleClick: PropTypes.func.isRequired,
-  onPlay: PropTypes.func
+  onPlay: PropTypes.func,
+  api: PropTypes.any.isRequired
 };
 
 export default MoviePage;

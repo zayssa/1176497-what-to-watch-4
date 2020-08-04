@@ -8,7 +8,7 @@ it(`Render Videoplayer`, () => {
       source="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
       title="The Fast and the Furious"
       poster="img/avatar.jpg"
-      isActiveState="true"
+      isActiveState={true}
     />)
     .toJSON();
 

@@ -2,6 +2,9 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Tabs from "./tabs.jsx";
+import {createAPI} from "../../api";
+
+const api = createAPI();
 
 Enzyme.configure({
   adapter: new Adapter()
@@ -13,7 +16,7 @@ const film = {
   title: `Stone`,
   poster: `img/avatar.jpg`,
   genre: `Horror`,
-  year: `1990`,
+  year: 1990,
   rating: 5.1,
   count: 130,
   bg: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -28,25 +31,10 @@ const film = {
   actors: [`Val Kilmer`, `Dakota Fanning`, `Monica Bellucci`, `Jason Momoa`],
   preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
   runtime: 102,
-  comments: [
-    {
-      author: `Kate Muir`,
-      text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-      date: new Date(2016, 11, 24),
-      rating: 8.9
-    },
-    {
-      author: `Bill Goodykoontz`,
-      text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-      date: new Date(2015, 11, 18),
-      rating: 8.0
-    },
-    {
-      author: `Amanda Greever`,
-      text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-      date: new Date(2016, 11, 24),
-      rating: 7.2
-    }],
+  previewImage: `img/the-grand-budapest-hotel.jpg`,
+  bgColor: `#ffffff`,
+  videoLink: `https://some-link`,
+  isFavorite: true
 };
 
 it(`Click on details tab`, () => {
@@ -56,7 +44,7 @@ it(`Click on details tab`, () => {
   };
 
   const tabs = shallow(
-      <Tabs film={film} activeItem={tab} setActiveItem={setTab} />
+      <Tabs film={film} activeItem={tab} setActiveItem={setTab} api={api} />
   );
 
   const detailsTab = tabs.find(`.movie-nav__item`).at(1);
@@ -72,7 +60,7 @@ it(`Click on overview tab`, () => {
   };
 
   const tabs = shallow(
-      <Tabs film={film} activeItem={tab} setActiveItem={setTab} />
+      <Tabs film={film} activeItem={tab} setActiveItem={setTab} api={api} />
   );
 
   const overviewTab = tabs.find(`.movie-nav__item`).at(0);
@@ -88,7 +76,7 @@ it(`Click on review tab`, () => {
   };
 
   const tabs = shallow(
-      <Tabs film={film} activeItem={tab} setActiveItem={setTab} />
+      <Tabs film={film} activeItem={tab} setActiveItem={setTab} api={api} />
   );
 
   const reviewTab = tabs.find(`.movie-nav__item`).at(2);

@@ -17,7 +17,7 @@ it(`FilmTitleClick`, () => {
           title: `Spain`,
           poster: `img/avatar.jpg`,
           genre: `Kids&Family`,
-          year: `2018`,
+          year: 2018,
           rating: 7.0,
           count: 165,
           bg: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -32,25 +32,10 @@ it(`FilmTitleClick`, () => {
           actors: [`Zoe Saldana`, `Jamie Lee Curtis`, `James Woods and other`, `Luke Evans`, `Gerard Butler`],
           preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
           runtime: 75,
-          comments: [
-            {
-              author: `Kate Muir`,
-              text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-              date: new Date(2016, 11, 24),
-              rating: 8.9
-            },
-            {
-              author: `Bill Goodykoontz`,
-              text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-              date: new Date(2015, 10, 13),
-              rating: 8.0
-            },
-            {
-              author: `Amanda Greever`,
-              text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-              date: new Date(2015, 11, 24),
-              rating: 7.2
-            }],
+          previewImage: `img/the-grand-budapest-hotel.jpg`,
+          bgColor: `#ffffff`,
+          videoLink: `https://some-link`,
+          isFavorite: true
         }}
         onTitleClick={onTitleClick}
         onPosterHover={() => {}}
@@ -74,7 +59,7 @@ it(`FilmPosterClick`, () => {
           title: `DogShow`,
           poster: `img/avatar.jpg`,
           genre: `Horror`,
-          year: `2013`,
+          year: 2013,
           rating: 6.8,
           count: 145,
           bg: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -89,25 +74,10 @@ it(`FilmPosterClick`, () => {
           actors: [`Silvestor Stallone`, `Kim Rise`, `Ralph Fiennes`, `Daniel Craig`],
           preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
           runtime: 125,
-          comments: [
-            {
-              author: `Kate Muir`,
-              text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-              date: new Date(2016, 11, 24),
-              rating: 8.9
-            },
-            {
-              author: `Bill Goodykoontz`,
-              text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-              date: new Date(2015, 9, 24),
-              rating: 8.0
-            },
-            {
-              author: `Amanda Greever`,
-              text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-              date: new Date(2015, 10, 29),
-              rating: 7.2
-            }],
+          previewImage: `img/the-grand-budapest-hotel.jpg`,
+          bgColor: `#ffffff`,
+          videoLink: `https://some-link`,
+          isFavorite: false,
         }}
         onTitleClick={onPosterClick}
         onPosterHover={() => {}}
@@ -128,7 +98,7 @@ it(`FilmPosterHover`, () => {
     title: `Stone`,
     poster: `img/avatar.jpg`,
     genre: `Horror`,
-    year: `1990`,
+    year: 1990,
     rating: 5.1,
     count: 130,
     bg: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -143,25 +113,10 @@ it(`FilmPosterHover`, () => {
     actors: [`Val Kilmer`, `Dakota Fanning`, `Monica Bellucci`, `Jason Momoa`],
     preview: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
     runtime: 102,
-    comments: [
-      {
-        author: `Kate Muir`,
-        text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-        date: new Date(2016, 11, 24),
-        rating: 8.9
-      },
-      {
-        author: `Bill Goodykoontz`,
-        text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-        date: new Date(2015, 11, 18),
-        rating: 8.0
-      },
-      {
-        author: `Amanda Greever`,
-        text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-        date: new Date(2016, 11, 24),
-        rating: 7.2
-      }],
+    previewImage: `img/the-grand-budapest-hotel.jpg`,
+    bgColor: `#ffffff`,
+    videoLink: `https://some-link`,
+    isFavorite: false
   };
   let result;
 

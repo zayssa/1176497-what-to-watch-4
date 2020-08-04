@@ -1,20 +1,24 @@
 import React from "react";
-import {IFilm} from "../../types/film";
+import PropTypes from "prop-types";
+import {getHumanizedDate} from "../../utils/get-humanized-date";
+import {getAriaDateTime} from "../../utils/get-aria-datetime";
+
+import {IComment} from "../../types/review";
 
 
-const ReviewsTab = ({film}) => {
+const ReviewsTab = ({comments}) => {
   return (
     <div className="movie-card__reviews movie-card__row">
       {[0, 1].map((multiply) => (
         <div className="movie-card__reviews-col" key={`comment-col-${multiply}`}>
-          {film.comments.filter((comment, idx) => (idx % 2 === multiply)).map((comment) => (
-            <div className="review" key={`comment-${comment.author}-${comment.date}`}>
+          {comments.filter((comment, idx) => (idx % 2 === multiply)).map((comment) => (
+            <div className="review" key={`comment-${comment.id}`}>
               <blockquote className="review__quote">
-                <p className="review__text">{comment.text}</p>
+                <p className="review__text">{comment.comment}</p>
 
                 <footer className="review__details">
-                  <cite className="review__author">{comment.author}</cite>
-                  <time className="review__date" dateTime="2016-12-24">December 24, 2016</time>
+                  <cite className="review__author">{comment.user.name}</cite>
+                  <time className="review__date" dateTime={getAriaDateTime(comment.date)}>{getHumanizedDate(comment.date)}</time>
                 </footer>
               </blockquote>
 
@@ -28,7 +32,9 @@ const ReviewsTab = ({film}) => {
 };
 
 ReviewsTab.propTypes = {
-  film: IFilm.isRequired
+  comments: PropTypes.arrayOf(
+      IComment
+  ).isRequired
 };
 
 export default ReviewsTab;

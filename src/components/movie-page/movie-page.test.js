@@ -1,6 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import MoviePage from "./movie-page.jsx";
+import {createAPI} from "../../api";
+
+const api = createAPI();
 
 it(`Render MoviePage`, () => {
   const tree = renderer
@@ -10,7 +13,7 @@ it(`Render MoviePage`, () => {
         title: `Look`,
         poster: `img/avatar.jpg`,
         genre: `Comedy`,
-        year: `2002`,
+        year: 2002,
         rating: 7.6,
         count: 178,
         bg: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -25,32 +28,17 @@ it(`Render MoviePage`, () => {
         actors: [`Sherilyn Fenn`, `Michelle Rodriguez`, `Patrick Swayze`, `Benedict Cumberbatch`, `Emily Blunt`],
         preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
         runtime: 102,
-        comments: [
-          {
-            author: `Kate Muir`,
-            text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-            date: new Date(2015, 10, 15),
-            rating: 8.9
-          },
-          {
-            author: `Bill Goodykoontz`,
-            text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-            date: new Date(2016, 10, 23),
-            rating: 8.0
-          },
-          {
-            author: `Amanda Greever`,
-            text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-            date: new Date(2015, 10, 15),
-            rating: 7.2
-          }],
+        previewImage: `img/the-grand-budapest-hotel.jpg`,
+        bgColor: `#cccccc`,
+        videoLink: `https://some-link`,
+        isFavorite: true
       }]}
       film={{
         id: 1,
         title: `Stone`,
         poster: `img/avatar.jpg`,
         genre: `Drama`,
-        year: `2000`,
+        year: 2000,
         rating: 8.9,
         count: 240,
         bg: `img/bg-the-grand-budapest-hotel.jpg`,
@@ -65,27 +53,13 @@ it(`Render MoviePage`, () => {
         actors: [`Sam Smith`, `Oko Saka`, `Eddy Eagl`, `Samanta Smith`, `Daniel Radcliffe`, `Orlando Bloom`],
         preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
         runtime: 98,
-        comments: [
-          {
-            author: `Kate Muir`,
-            text: `I didn't find it amusing, and while I can appreciate the creativity, it's an hour and 40 minutes I wish I could take back.`,
-            date: new Date(2016, 11, 17),
-            rating: 8.9
-          },
-          {
-            author: `Bill Goodykoontz`,
-            text: `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
-            date: new Date(2015, 10, 25),
-            rating: 8.0
-          },
-          {
-            author: `Amanda Greever`,
-            text: `The mannered, madcap proceedings are often delightful, occasionally silly, and here and there, gruesome and/or heartbreaking.`,
-            date: new Date(2017, 11, 17),
-            rating: 7.2
-          }],
+        previewImage: `img/avatar.jpg`,
+        bgColor: `#ffffff`,
+        videoLink: `https://some-link`,
+        isFavorite: false
       }}
       onFilmTitleClick={() => {}}
+      api={api}
     />)
     .toJSON();
 

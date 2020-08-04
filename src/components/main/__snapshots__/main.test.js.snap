@@ -117,7 +117,7 @@ Array [
       className="movie-card__bg"
     >
       <img
-        alt="The Grand Budapest Hotel"
+        alt="Bersek"
         src="img/bg-the-grand-budapest-hotel.jpg"
       />
     </div>
@@ -201,7 +201,9 @@ Array [
             </span>
             <span
               className="movie-card__year"
-            />
+            >
+              2008
+            </span>
           </p>
           <div
             className="movie-card__buttons"
