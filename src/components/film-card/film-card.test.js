@@ -1,10 +1,12 @@
 import React from "react";
+import {Router} from "react-router-dom";
 import renderer from "react-test-renderer";
 import FilmCard from "./film-card.jsx";
+import history from "../../history";
 
 it(`Render FilmCard`, () => {
   const tree = renderer
-    .create(<FilmCard
+    .create(<Router history={history}><FilmCard
       film={{
         id: 1,
         title: `Gravity`,
@@ -34,7 +36,7 @@ it(`Render FilmCard`, () => {
       onTitleClick={() => {}}
       onPosterHover={() => {}}
       setActiveState={() => {}}
-    />)
+    /></Router>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
