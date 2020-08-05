@@ -27,15 +27,15 @@ const App = (props) => {
         <Route path="/login">
           <SignIn />
         </Route>
-        <Route path="/film">
+        <Route path="/film/:filmId" render={(rrdProps) => (
           <MoviePage
-            film={props.films[0]}
             films={props.films}
             onFilmTitleClick={props.setActiveItem}
             onPlay={onPlay}
             api={props.api}
+            {...rrdProps}
           />
-        </Route>
+        )}/>
         <Route path="/">
           <Main
             {...props}
