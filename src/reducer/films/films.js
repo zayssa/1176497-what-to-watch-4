@@ -1,12 +1,13 @@
 import {extend} from "../../utils/extend";
-import {adaptFilmsList} from "../../utils/adapter-film";
+import {adaptFilm, adaptFilmsList} from "../../utils/adapter-film";
 
 const initialState = {
   films: []
 };
 
 const ActionType = {
-  GET_FILMS: `GET_FILMS`
+  GET_FILMS: `GET_FILMS`,
+  TOGGLE_FAVORITE: `TOGGLE_FAVORITE`
 };
 
 const ActionCreator = {
@@ -28,10 +29,10 @@ const Operation = {
       });
   },
   toggleFavorite: (filmId) => (dispatch, getState, api) => {
-    const currentStatus = getState().films.find((film) => film.id === filmId).isFavorite;
+    const currentStatus = getState()[`FILMS`].films.find((film) => film.id === filmId).isFavorite;
     return api.post(`/favorite/${filmId}/${currentStatus ? 0 : 1}`)
       .then((response) => {
-        dispatch(ActionCreator.toggleFavorite(response.data));
+        dispatch(ActionCreator.toggleFavorite(adaptFilm(response.data)));
       });
   }
 };
