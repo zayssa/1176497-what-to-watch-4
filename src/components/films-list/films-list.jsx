@@ -37,7 +37,6 @@ class FilmsList extends React.PureComponent {
             <FilmCardWrapped
               key={`film-${film.id}-${film.title}`}
               film={film}
-              onTitleClick={this.props.onFilmTitleClick.bind(this, film)}
               onPosterHover={this.props.setActiveItem ? this.props.setActiveItem.bind(this) : () => {}}
             />
           )).slice(0, this.props.onMainPage ? this.FILMS_PER_PAGE * this.props.page : 4)}

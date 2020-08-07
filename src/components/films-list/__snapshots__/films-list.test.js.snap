@@ -7,37 +7,41 @@ exports[`Render FilmsList 1`] = `
   <article
     className="small-movie-card catalog__movies-card"
   >
-    <div
-      className="small-movie-card__image"
+    <a
+      href="/film/1"
       onClick={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
     >
-      <video
-        muted={true}
-        poster="img/avatar.jpg"
-        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
-        style={
-          Object {
-            "bottom": 0,
-            "height": "auto",
-            "left": 0,
-            "margin": "auto",
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-            "width": "100%",
+      <div
+        className="small-movie-card__image"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <video
+          muted={true}
+          poster="img/avatar.jpg"
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          style={
+            Object {
+              "bottom": 0,
+              "height": "auto",
+              "left": 0,
+              "margin": "auto",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "width": "100%",
+            }
           }
-        }
-      />
-    </div>
+        />
+      </div>
+    </a>
     <h3
       className="small-movie-card__title"
-      onClick={[Function]}
     >
       <a
         className="small-movie-card__link"
-        href="/films/1"
+        href="/film/1"
+        onClick={[Function]}
       >
         Look
       </a>

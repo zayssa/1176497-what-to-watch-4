@@ -1,9 +1,11 @@
 import React from "react";
+import {Router} from "react-router-dom";
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import renderer from "react-test-renderer";
 import {Main} from "./main.jsx";
 import {reducers} from "../../reducer/reducer";
+import history from "../../history";
 
 it(`Render Main`, () => {
   const data = {
@@ -67,10 +69,12 @@ it(`Render Main`, () => {
 
   const tree = renderer
     .create(<Provider store={store}>
-      <Main
-        {...data}
-        onFilmTitleClick={() => {}}
-      />
+      <Router history={history}>
+        <Main
+          {...data}
+          onFilmTitleClick={() => {}}
+        />
+      </Router>
     </Provider>)
     .toJSON();
 

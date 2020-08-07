@@ -1,96 +1,13 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
+import {Router} from "react-router-dom";
+import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import FilmCard from "./film-card.jsx";
+import history from "../../history";
 
 Enzyme.configure({
   adapter: new Adapter()
 });
-
-it(`FilmTitleClick`, () => {
-  const onTitleClick = jest.fn();
-
-  const filmCard = shallow(
-      <FilmCard
-        film={{
-          id: 1,
-          title: `Spain`,
-          poster: `img/avatar.jpg`,
-          genre: `Kids&Family`,
-          year: 2018,
-          rating: 7.0,
-          count: 165,
-          bg: `img/bg-the-grand-budapest-hotel.jpg`,
-          text: `In the 1930s, the Grand Budapest Hotel is a popular
-          European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
-          Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
-          Gustave prides himself on providing first-class service to the hotel&apos;s guests,
-          including satisfying the sexual needs of the many elderly women who stay there.
-          When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
-          the recipient of a priceless painting and the chief suspect in her murder.`,
-          director: `Ashton Kutcher`,
-          actors: [`Zoe Saldana`, `Jamie Lee Curtis`, `James Woods and other`, `Luke Evans`, `Gerard Butler`],
-          preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-          runtime: 75,
-          previewImage: `img/the-grand-budapest-hotel.jpg`,
-          bgColor: `#ffffff`,
-          videoLink: `https://some-link`,
-          isFavorite: true
-        }}
-        onTitleClick={onTitleClick}
-        onPosterHover={() => {}}
-      />
-  );
-
-  const title = filmCard.find(`.small-movie-card__title`);
-
-  title.simulate(`click`);
-
-  expect(onTitleClick).toHaveBeenCalledTimes(1);
-});
-
-it(`FilmPosterClick`, () => {
-  const onPosterClick = jest.fn();
-
-  const filmCard = shallow(
-      <FilmCard
-        film={{
-          id: 1,
-          title: `DogShow`,
-          poster: `img/avatar.jpg`,
-          genre: `Horror`,
-          year: 2013,
-          rating: 6.8,
-          count: 145,
-          bg: `img/bg-the-grand-budapest-hotel.jpg`,
-          text: `In the 1930s, the Grand Budapest Hotel is a popular
-          European ski resort, presided over by concierge Gustave H. (Ralph Fiennes).
-          Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
-          Gustave prides himself on providing first-class service to the hotel&apos;s guests,
-          including satisfying the sexual needs of the many elderly women who stay there.
-          When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself
-          the recipient of a priceless painting and the chief suspect in her murder.`,
-          director: `Joe Dassan`,
-          actors: [`Silvestor Stallone`, `Kim Rise`, `Ralph Fiennes`, `Daniel Craig`],
-          preview: `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`,
-          runtime: 125,
-          previewImage: `img/the-grand-budapest-hotel.jpg`,
-          bgColor: `#ffffff`,
-          videoLink: `https://some-link`,
-          isFavorite: false,
-        }}
-        onTitleClick={onPosterClick}
-        onPosterHover={() => {}}
-      />
-  );
-
-  const poster = filmCard.find(`.small-movie-card__image`);
-
-  poster.simulate(`click`);
-
-  expect(onPosterClick).toHaveBeenCalledTimes(1);
-});
-
 
 it(`FilmPosterHover`, () => {
   const film = {
@@ -120,14 +37,16 @@ it(`FilmPosterHover`, () => {
   };
   let result;
 
-  const filmCard = shallow(
-      <FilmCard
-        film={film}
-        onTitleClick={() => {}}
-        onPosterHover={(data) => {
-          result = data;
-        }}
-      />
+  const filmCard = mount(
+      <Router history={history}>
+        <FilmCard
+          film={film}
+          onTitleClick={() => {}}
+          onPosterHover={(data) => {
+            result = data;
+          }}
+        />
+      </Router>
   );
 
   const poster = filmCard.find(`.small-movie-card__image`);

@@ -4,12 +4,15 @@ import Tabs from "../tabs/tabs.jsx";
 import FilmsList from "../films-list/films-list.jsx";
 import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
 import SiteHeader from "../site-header/site-header.jsx";
+import {SiteFooter} from "../site-footer/site-footer.jsx";
+import HeaderMovie from "../header-movie/header-movie.jsx";
 
 import {IFilm} from "../../types/film";
 
 
-const MoviePage = ({film, films, onFilmTitleClick, onPlay, api}) => {
+const MoviePage = ({films, onFilmTitleClick, onPlay, api, match}) => {
   const TabsWrapped = withActiveItem(Tabs);
+  const film = films.find((item) => item.id.toString() === match.params.filmId);
 
   return (
     <>
@@ -50,31 +53,7 @@ const MoviePage = ({film, films, onFilmTitleClick, onPlay, api}) => {
 
           <SiteHeader />
 
-          <div className="movie-card__wrap">
-            <div className="movie-card__desc">
-              <h2 className="movie-card__title">{film.title}</h2>
-              <p className="movie-card__meta">
-                <span className="movie-card__genre">{film.genre}</span>
-                <span className="movie-card__year">{film.year}</span>
-              </p>
-
-              <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button" onClick={onPlay}>
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-                <a href="add-review.html" className="btn movie-card__button">Add review</a>
-              </div>
-            </div>
-          </div>
+          <HeaderMovie film={film} onPlay={onPlay} />
         </div>
 
         <div className="movie-card__wrap movie-card__translate-top">
@@ -99,26 +78,14 @@ const MoviePage = ({film, films, onFilmTitleClick, onPlay, api}) => {
           />
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a href="main.html" className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );
 };
 
 MoviePage.propTypes = {
-  film: IFilm.isRequired,
+  match: PropTypes.any,
   films: PropTypes.arrayOf(
       IFilm
   ),

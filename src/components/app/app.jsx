@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route, Router} from "react-router-dom";
 import {connect} from "react-redux";
 import {getFilms} from "../../reducer/selectors";
 import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
+import SignIn from "../sign-in/sign-in.jsx";
 import Videoplayer from "../videoplayer/videoplayer.jsx";
 import withVideoplayer from "../hocs/with-videoplayer/with-videoplayer.jsx";
+import history from "../../history";
 
 import {IFilm} from "../../types/film";
 
@@ -20,33 +22,26 @@ const App = (props) => {
   const activeItem = props.activeItem || props.films[0];
 
   return props.films.length ? (
-    <BrowserRouter>
+    <Router history={history}>
       <Switch>
-        <Route path="/" exact>
-          {props.activeItem ? (
-            <MoviePage
-              film={props.activeItem}
-              films={props.films}
-              onFilmTitleClick={props.setActiveItem}
-              onPlay={onPlay}
-              api={props.api}
-            />
-          ) : (
-            <Main
-              {...props}
-              onFilmTitleClick={props.setActiveItem}
-              onPlay={onPlay}
-              activeItem={activeItem}
-            />
-          )}
+        <Route path="/login">
+          <SignIn />
         </Route>
-        <Route path="/dev-films" exact>
+        <Route path="/film/:filmId" render={(rrdProps) => (
           <MoviePage
-            film={props.films[0]}
             films={props.films}
             onFilmTitleClick={props.setActiveItem}
             onPlay={onPlay}
             api={props.api}
+            {...rrdProps}
+          />
+        )}/>
+        <Route path="/">
+          <Main
+            {...props}
+            onFilmTitleClick={props.setActiveItem}
+            onPlay={onPlay}
+            activeItem={activeItem}
           />
         </Route>
       </Switch>
@@ -59,7 +54,7 @@ const App = (props) => {
           props.setActiveState(false);
         }}
       />
-    </BrowserRouter>
+    </Router>
   ) : <div style={{height: `100vh`, display: `flex`, justifyContent: `center`, alignItems: `center`}}>Loading...</div>;
 };
 
