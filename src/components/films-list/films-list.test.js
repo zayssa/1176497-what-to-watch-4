@@ -1,10 +1,12 @@
 import React from "react";
+import {Router} from "react-router-dom";
 import renderer from "react-test-renderer";
 import FilmsList from "./films-list.jsx";
+import history from "../../history";
 
 it(`Render FilmsList`, () => {
   const tree = renderer
-    .create(<FilmsList
+    .create(<Router history={history}><FilmsList
       films={[{
         id: 1,
         title: `Look`,
@@ -31,7 +33,7 @@ it(`Render FilmsList`, () => {
         isFavorite: false
       }]}
       onFilmTitleClick={() => {}}
-    />)
+    /></Router>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
