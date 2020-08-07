@@ -1,16 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 import Tabs from "../tabs/tabs.jsx";
 import FilmsList from "../films-list/films-list.jsx";
 import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
 import SiteHeader from "../site-header/site-header.jsx";
 import {SiteFooter} from "../site-footer/site-footer.jsx";
-import HeaderMovie from "../header-movie/header-movie.jsx";
+import {Operation as FilmOperation} from "../../reducer/films/films";
+import {getAuthStatus} from "../../reducer/selectors";
 
 import {IFilm} from "../../types/film";
+import {IUser} from "../../types/user";
 
 
-const MoviePage = ({films, onFilmTitleClick, onPlay, api, match}) => {
+const MoviePage = ({films, onFilmTitleClick, onPlay, api, match, authorizationStatus, toggleFavorite, userInfo}) => {
   const TabsWrapped = withActiveItem(Tabs);
   const film = films.find((item) => item.id.toString() === match.params.filmId);
 
@@ -51,9 +55,42 @@ const MoviePage = ({films, onFilmTitleClick, onPlay, api, match}) => {
             <img src={film.bg} alt={film.title} />
           </div>
 
-          <SiteHeader />
+          <SiteHeader userInfo={userInfo} />
 
-          <HeaderMovie film={film} onPlay={onPlay} />
+          <div className="movie-card__wrap">
+            <div className="movie-card__desc">
+              <h2 className="movie-card__title">{film.title}</h2>
+              <p className="movie-card__meta">
+                <span className="movie-card__genre">{film.genre}</span>
+                <span className="movie-card__year">{film.year}</span>
+              </p>
+
+              <div className="movie-card__buttons">
+                <button className="btn btn--play movie-card__button" type="button" onClick={onPlay}>
+                  <svg viewBox="0 0 19 19" width="19" height="19">
+                    <use xlinkHref="#play-s"/>
+                  </svg>
+                  <span>Play</span>
+                </button>
+                {authorizationStatus === `AUTH` ? (
+                  <button className="btn btn--list movie-card__button" type="button" onClick={() => toggleFavorite(film.id)}>
+                    <svg viewBox="0 0 19 20" width="19" height="20">
+                      <use xlinkHref={film.isFavorite ? `#in-list` : `#add`} />
+                    </svg>
+                    <span>My list</span>
+                  </button>
+                ) : (
+                  <Link className="btn btn--list movie-card__button" to="/login">
+                    <svg viewBox="0 0 19 20" width="19" height="20">
+                      <use xlinkHref="#add" />
+                    </svg>
+                    <span>My list</span>
+                  </Link>
+                )}
+                <Link to={`/films/${film.id}/review`} className="btn movie-card__button">Add review</Link>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="movie-card__wrap movie-card__translate-top">
@@ -91,7 +128,21 @@ MoviePage.propTypes = {
   ),
   onFilmTitleClick: PropTypes.func.isRequired,
   onPlay: PropTypes.func,
-  api: PropTypes.any.isRequired
+  api: PropTypes.any.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  toggleFavorite: PropTypes.func.isRequired,
+  userInfo: IUser
 };
 
-export default MoviePage;
+const mapStateToProps = (state) => ({
+  authorizationStatus: getAuthStatus(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  toggleFavorite(filmId) {
+    dispatch(FilmOperation.toggleFavorite(filmId));
+  }
+});
+
+export {MoviePage};
+export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);

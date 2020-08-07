@@ -1,24 +1,27 @@
 import MockAdapter from "axios-mock-adapter";
 import {createAPI} from "../../api";
 import {reducer, ActionType, Operation} from "./films";
-import {films} from "../../mocks/films";
+import {films, comments} from "../../mocks/films";
 
 const api = createAPI(() => {});
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
     films: [],
+    comments: {},
   });
 });
 
 it(`Reducer should update films list by load films`, () => {
   expect(reducer({
     films: [],
+    comments: {},
   }, {
     type: ActionType.GET_FILMS,
     payload: films,
   })).toEqual({
     films,
+    comments,
   });
 });
 
