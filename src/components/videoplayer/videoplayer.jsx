@@ -1,18 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {getHumanizedTime} from "../../utils/get-humanized-time";
+import {IFilm} from '../../types/film';
 
 class Videoplayer extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.videoRef = React.createRef();
-  }
-
-  onExit() {
-    this.videoRef.current.pause();
-    this.props.setFullscreen(false);
-    this.props.onExit();
   }
 
   onFullscreen() {
@@ -55,12 +50,16 @@ class Videoplayer extends React.PureComponent {
     }
   }
 
+  onExit() {
+    this.props.history.push(`/films/${this.props.match.params.filmId}`);
+  }
+
   render() {
-    return this.props.isActiveState ? (
+    return (
       <div className="player">
         <video
-          src={this.props.source}
-          poster={this.props.poster}
+          src={this.props.film.videoLink}
+          poster={this.props.film.poster}
           onLoadedMetadata={this.initVideoplayer.bind(this)}
           onTimeUpdate={this.onTimeUpdate.bind(this)}
           onClick={this.onPlayPauseToggle.bind(this)}
@@ -68,7 +67,7 @@ class Videoplayer extends React.PureComponent {
           className="player__video"
         />
 
-        <button type="button" className="player__exit" onClick={this.props.onExit}>Exit</button>
+        <button type="button" className="player__exit" onClick={this.onExit.bind(this)}>Exit</button>
 
         <div className="player__controls">
           <div className="player__controls-row">
@@ -92,7 +91,7 @@ class Videoplayer extends React.PureComponent {
               </svg>
               <span>Play</span>
             </button>
-            <div className="player__name">{this.props.title}</div>
+            <div className="player__name">{this.props.film.title}</div>
 
             <button type="button" className="player__full-screen" onClick={this.onFullscreen.bind(this)}>
               <svg viewBox="0 0 27 27" width="27" height="27">
@@ -103,20 +102,18 @@ class Videoplayer extends React.PureComponent {
           </div>
         </div>
       </div>
-    ) : null;
+    );
   }
 }
 
 Videoplayer.propTypes = {
-  title: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
-  source: PropTypes.string.isRequired,
-  isActiveState: PropTypes.bool,
-  onExit: PropTypes.func,
+  film: IFilm,
   isFullscreen: PropTypes.bool,
   setFullscreen: PropTypes.func,
   estimatedTime: PropTypes.number,
   setEstimatedTime: PropTypes.func,
+  history: PropTypes.any,
+  match: PropTypes.any
 };
 
 export default Videoplayer;

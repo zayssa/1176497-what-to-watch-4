@@ -14,7 +14,7 @@ import {IFilm} from "../../types/film";
 import {IUser} from "../../types/user";
 
 
-const MoviePage = ({films, onFilmTitleClick, onPlay, api, match, authorizationStatus, toggleFavorite, userInfo}) => {
+const MoviePage = ({films, history, api, match, authorizationStatus, toggleFavorite, userInfo}) => {
   const TabsWrapped = withActiveItem(Tabs);
   const film = films.find((item) => item.id.toString() === match.params.filmId);
 
@@ -66,7 +66,7 @@ const MoviePage = ({films, onFilmTitleClick, onPlay, api, match, authorizationSt
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button" onClick={onPlay}>
+                <button className="btn btn--play movie-card__button" type="button" onClick={() => history.push(`/player/${film.id}`)}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"/>
                   </svg>
@@ -110,7 +110,6 @@ const MoviePage = ({films, onFilmTitleClick, onPlay, api, match, authorizationSt
 
           <FilmsList
             films={films}
-            onFilmTitleClick={onFilmTitleClick}
             genre={film.genre}
           />
         </section>
@@ -126,12 +125,11 @@ MoviePage.propTypes = {
   films: PropTypes.arrayOf(
       IFilm
   ),
-  onFilmTitleClick: PropTypes.func.isRequired,
-  onPlay: PropTypes.func,
   api: PropTypes.any.isRequired,
   authorizationStatus: PropTypes.string.isRequired,
   toggleFavorite: PropTypes.func.isRequired,
-  userInfo: IUser
+  userInfo: IUser,
+  history: PropTypes.any
 };
 
 const mapStateToProps = (state) => ({

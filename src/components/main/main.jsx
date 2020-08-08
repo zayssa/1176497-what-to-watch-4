@@ -17,7 +17,7 @@ import {SiteFooter} from "../site-footer/site-footer.jsx";
 import {IFilm} from "../../types/film";
 import {IUser} from "../../types/user";
 
-const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPlay, authorizationStatus, toggleFavorite, userInfo}) => {
+const Main = ({activeItem, films, currentGenre, setGenre, authorizationStatus, toggleFavorite, userInfo, history}) => {
 
   const genres = Array.from(new Set(films.map((film) => (film.genre))));
   genres.unshift(`All genres`);
@@ -71,7 +71,7 @@ const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPl
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button" onClick={onPlay}>
+                <button className="btn btn--play movie-card__button" type="button" onClick={() => history.push(`/player/${activeItem.id}`)}>
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s" />
                   </svg>
@@ -108,7 +108,6 @@ const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPl
             films={films}
             onMainPage
             genre={currentGenre !== `All genres` ? currentGenre : undefined}
-            onFilmTitleClick={onFilmTitleClick}
           />
         </section>
 
@@ -123,13 +122,12 @@ Main.propTypes = {
   films: PropTypes.arrayOf(
       IFilm
   ).isRequired,
-  onFilmTitleClick: PropTypes.func.isRequired,
   currentGenre: PropTypes.string.isRequired,
   setGenre: PropTypes.func.isRequired,
-  onPlay: PropTypes.func,
   toggleFavorite: PropTypes.func,
   authorizationStatus: PropTypes.string.isRequired,
-  userInfo: IUser
+  userInfo: IUser,
+  history: PropTypes.any
 };
 
 const mapStateToProps = (state) => ({
