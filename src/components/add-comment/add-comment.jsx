@@ -25,13 +25,15 @@ class AddComment extends PureComponent {
   handleSubmit(evt) {
     evt.preventDefault();
 
+    this.props.setActiveItem(``);
+
     this.props.api.post(`/comments/${this.film.id}`, {
       "rating": this.ratingRef.current,
       "comment": this.commentTextRef.current.value
     }).then(() => {
       this.props.history.push(`/films/${this.film.id}`);
     }).catch((err) => {
-      throw err;
+      this.props.setActiveItem(err.toString());
     });
   }
 
@@ -106,6 +108,11 @@ class AddComment extends PureComponent {
 
           <div className="add-review">
             <form action="#" className="add-review__form" onSubmit={this.handleSubmit.bind(this)}>
+              {this.props.activeItem ? (
+                <div className="sign-in__message" style={{color: `red`}}>
+                  <p>{this.props.activeItem}</p>
+                </div>
+              ) : null}
               <div className="rating">
                 <div className="rating__stars">
                   <input className="rating__input" id="star-1" type="radio" name="rating" value="1" onChange={this.onRatingChange.bind(this)} />
@@ -130,7 +137,10 @@ class AddComment extends PureComponent {
                   this.props.setActiveState(!!this.ratingRef.current && this.commentTextRef.current.value.length >= 50 && this.commentTextRef.current.value.length <= 400);
                 }} />
                 <div className="add-review__submit">
-                  <button className="add-review__btn" type="submit" disabled={!this.props.isActiveState}>Post</button>
+                  <button className="add-review__btn" type="submit" style={!this.props.isActiveState ? {
+                    cursor: `default`,
+                    opacity: 0.5
+                  } : undefined} disabled={!this.props.isActiveState}>Post</button>
                 </div>
 
               </div>
@@ -152,7 +162,9 @@ AddComment.propTypes = {
   api: PropTypes.any.isRequired,
   history: PropTypes.any,
   isActiveState: PropTypes.bool,
-  setActiveState: PropTypes.func
+  setActiveState: PropTypes.func,
+  activeItem: PropTypes.any,
+  setActiveItem: PropTypes.func
 };
 
 export default AddComment;

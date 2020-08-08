@@ -318,6 +318,12 @@ Array [
             <button
               className="add-review__btn"
               disabled={true}
+              style={
+                Object {
+                  "cursor": "default",
+                  "opacity": 0.5,
+                }
+              }
               type="submit"
             >
               Post

@@ -58,7 +58,7 @@ const Operation = {
       });
   },
 
-  login: (authData) => (dispatch, getState, api) => {
+  login: (authData, onFail) => (dispatch, getState, api) => {
     return api.post(`/login`, {
       email: authData.login,
       password: authData.password,
@@ -66,8 +66,8 @@ const Operation = {
       .then(() => {
         dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
       })
-      .catch((err) => {
-        throw err;
+      .catch(() => {
+        onFail();
       });
   },
 };

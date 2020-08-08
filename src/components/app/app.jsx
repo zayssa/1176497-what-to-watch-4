@@ -9,6 +9,7 @@ import SignIn from "../sign-in/sign-in.jsx";
 import Videoplayer from "../videoplayer/videoplayer.jsx";
 import withVideoplayer from "../hocs/with-videoplayer/with-videoplayer.jsx";
 import withActiveState from '../hocs/with-active-state/with-active-state.jsx';
+import withActiveItem from '../hocs/with-active-item/with-active-item.jsx';
 import history from "../../history";
 import PrivateRoute from "../private-route/private-route.jsx";
 
@@ -18,7 +19,8 @@ import AddComment from '../add-comment/add-comment.jsx';
 
 const App = (props) => {
   const VideoplayerWrapped = withVideoplayer(Videoplayer);
-  const AddCommentWrapped = withActiveState(AddComment);
+  const AddCommentWrapped = withActiveItem(withActiveState(AddComment));
+  const SignInWrapped = withActiveState(SignIn);
 
   const onPlay = () => {
     props.setActiveState(true);
@@ -30,7 +32,7 @@ const App = (props) => {
     <Router history={history}>
       <Switch>
         <Route path="/login">
-          <SignIn />
+          <SignInWrapped />
         </Route>
         <PrivateRoute path="/films/:filmId/review" render={(rrdProps) => (
           <AddCommentWrapped films={props.films} userInfo={props.userInfo} api={props.api} {...rrdProps} />

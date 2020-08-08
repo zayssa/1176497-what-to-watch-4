@@ -16,11 +16,12 @@ class SignIn extends PureComponent {
 
   handleSubmit(evt) {
     evt.preventDefault();
+    this.props.setActiveState(false);
 
     this.props.onSubmit({
       login: this.loginRef.current.value,
       password: this.passwordRef.current.value,
-    });
+    }, () => this.props.setActiveState(true));
   }
 
   render() {
@@ -65,13 +66,18 @@ class SignIn extends PureComponent {
 
         <div className="sign-in user-page__content">
           <form action="#" className="sign-in__form" onSubmit={this.handleSubmit.bind(this)}>
+            {this.props.isActiveState ? (
+              <div className="sign-in__message">
+                <p>We can’t recognize this email <br/> and password combination. Please try again.</p>
+              </div>
+            ) : null}
             <div className="sign-in__fields">
               <div className="sign-in__field">
-                <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" ref={this.loginRef}/>
+                <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email" required ref={this.loginRef}/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
               </div>
               <div className="sign-in__field">
-                <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" ref={this.passwordRef}/>
+                <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password" required ref={this.passwordRef}/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
               </div>
             </div>
@@ -92,14 +98,16 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit(authData) {
-    dispatch(UserOperation.login(authData));
+  onSubmit(authData, onFail) {
+    dispatch(UserOperation.login(authData, onFail));
   }
 });
 
 SignIn.propTypes = {
   authorizationStatus: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  isActiveState: PropTypes.bool,
+  setActiveState: PropTypes.func
 };
 
 export {SignIn};
