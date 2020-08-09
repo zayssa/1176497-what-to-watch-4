@@ -32,7 +32,6 @@ it(`Render FilmsList`, () => {
         videoLink: `https://some-link`,
         isFavorite: false
       }]}
-      onFilmTitleClick={() => {}}
     /></Router>)
     .toJSON();
 

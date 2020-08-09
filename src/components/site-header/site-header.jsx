@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {getAuthStatus} from "../../reducer/selectors";
+import {IUser} from "../../types/user";
 
 
-const SiteHeader = ({authorizationStatus}) => {
+const SiteHeader = ({authorizationStatus, userInfo}) => {
   return (
     <>
       <h1 className="visually-hidden">WTW</h1>
@@ -24,7 +25,9 @@ const SiteHeader = ({authorizationStatus}) => {
             <Link to="/login" className="user-block__link">Sign in</Link>
           ) : (
             <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+              <Link to="/mylist">
+                <img src={`https://4.react.pages.academy${userInfo.avatar_url}`} alt="User avatar" width="63" height="63" />
+              </Link>
             </div>
           )}
         </div>
@@ -40,7 +43,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = () => ({});
 
 SiteHeader.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired
+  authorizationStatus: PropTypes.string.isRequired,
+  userInfo: IUser
 };
 
 export {SiteHeader};

@@ -10,10 +10,11 @@ exports[`Render Videoplayer 1`] = `
     onLoadedMetadata={[Function]}
     onTimeUpdate={[Function]}
     poster="img/avatar.jpg"
-    src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    src="https://some-link"
   />
   <button
     className="player__exit"
+    onClick={[Function]}
     type="button"
   >
     Exit
@@ -72,7 +73,7 @@ exports[`Render Videoplayer 1`] = `
       <div
         className="player__name"
       >
-        The Fast and the Furious
+        Look
       </div>
       <button
         className="player__full-screen"

@@ -166,6 +166,7 @@ Array [
               id="user-email"
               name="user-email"
               placeholder="Email address"
+              required={true}
               type="email"
             />
             <label
@@ -183,6 +184,7 @@ Array [
               id="user-password"
               name="user-password"
               placeholder="Password"
+              required={true}
               type="password"
             />
             <label

@@ -1,11 +1,14 @@
 import React from "react";
+import {Router} from "react-router-dom";
 import renderer from "react-test-renderer";
-import Videoplayer from "./videoplayer.jsx";
+import AddComment from "./add-comment.jsx";
+import history from "../../history";
 
-it(`Render Videoplayer`, () => {
+
+it(`Render AddComment page`, () => {
   const tree = renderer
-    .create(<Videoplayer
-      film={{
+    .create(<Router history={history}><AddComment
+      films={[{
         id: 1,
         title: `Look`,
         poster: `img/avatar.jpg`,
@@ -29,8 +32,18 @@ it(`Render Videoplayer`, () => {
         bgColor: `#cccccc`,
         videoLink: `https://some-link`,
         isFavorite: true
+      }]}
+      match={{
+        params: {
+          filmId: `1`
+        }
       }}
-    />)
+      userInfo={{
+        "id": 1,
+        "email": `qwe@mail.ru`,
+        "name": `123456`,
+        "avatar_url": `img/avatar.png`
+      }} /></Router>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WithFilmsList snapshot should render WithFilmsList component 1`] = `<div />`;
