@@ -9,7 +9,6 @@ const initialState = {
 const ActionType = {
   GET_FILMS: `GET_FILMS`,
   TOGGLE_FAVORITE: `TOGGLE_FAVORITE`,
-  ADD_COMMENT: `ADD_COMMENT`
 };
 
 const ActionCreator = {
@@ -20,10 +19,6 @@ const ActionCreator = {
   toggleFavorite: (film) => ({
     type: ActionType.TOGGLE_FAVORITE,
     payload: film
-  }),
-  addComment: (filmId, comments) => ({
-    type: ActionType.ADD_COMMENT,
-    payload: {filmId, comments}
   })
 };
 
@@ -40,12 +35,6 @@ const Operation = {
       .then((response) => {
         dispatch(ActionCreator.toggleFavorite(adaptFilm(response.data)));
       });
-  },
-  addComment: (filmId, comment) => (dispatch, getState, api) => {
-    return api.post(`/comments/${filmId}`, {body: comment})
-      .then((response) => {
-        dispatch(ActionCreator.addComment(filmId, response.data));
-      });
   }
 };
 
@@ -61,16 +50,6 @@ const reducer = (state = initialState, action) => {
       return extend(state, {films: state.films.map((film) => (
         film.id === action.payload.id ? action.payload : film
       ))});
-    case ActionType.ADD_COMMENT:
-      return extend(
-          state, {
-            comments: extend(
-                state.comments, {
-                  [action.payload.filmId]: action.payload.comments
-                }
-            )
-          }
-      );
   }
 
   return state;
