@@ -53,13 +53,14 @@ const App = (props) => {
             {...rrdProps}
           />
         )}/>
-        <Route path="/">
+        <Route path="/" render={(rrdProps) => (
           <Main
             {...props}
+            {...rrdProps}
             userInfo={props.userInfo}
             activeItem={activeItem}
           />
-        </Route>
+        )}/>
       </Switch>
     </Router>
   ) : <div style={{height: `100vh`, display: `flex`, justifyContent: `center`, alignItems: `center`}}>Loading...</div>;

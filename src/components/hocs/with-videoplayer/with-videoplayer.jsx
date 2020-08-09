@@ -7,7 +7,8 @@ const withVideoplayer = (Component) => {
 
       this.state = {
         fullscreen: false,
-        estimatedTime: 0
+        estimatedTime: 0,
+        paused: false
       };
     }
 
@@ -21,6 +22,10 @@ const withVideoplayer = (Component) => {
         estimatedTime={this.state.estimatedTime}
         setEstimatedTime={(data) => {
           this.setState({estimatedTime: data});
+        }}
+        paused={this.state.paused}
+        setPaused={(data) => {
+          this.setState({paused: data});
         }}
       />);
     }
