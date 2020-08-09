@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 
 import {ActionCreator} from "../../reducer/reducer";
-import {getGenre} from "../../reducer/selectors";
+import {Operation as FilmOperation} from "../../reducer/films/films";
+import {getGenre, getAuthStatus} from "../../reducer/selectors";
 
 import SiteHeader from "../site-header/site-header.jsx";
 import FilmsList from "../films-list/films-list.jsx";
@@ -11,11 +13,11 @@ import {GenresList} from "../genres-list/genres-list.jsx";
 import withPage from "../hocs/with-page/with-page.jsx";
 import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
 import {SiteFooter} from "../site-footer/site-footer.jsx";
-import HeaderMovie from "../header-movie/header-movie.jsx";
 
 import {IFilm} from "../../types/film";
+import {IUser} from "../../types/user";
 
-const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPlay}) => {
+const Main = ({activeItem, films, currentGenre, setGenre, authorizationStatus, toggleFavorite, userInfo, history}) => {
 
   const genres = Array.from(new Set(films.map((film) => (film.genre))));
   genres.unshift(`All genres`);
@@ -53,9 +55,47 @@ const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPl
           <img src={activeItem.bg} alt={activeItem.title} />
         </div>
 
-        <SiteHeader />
+        <SiteHeader userInfo={userInfo} />
 
-        <HeaderMovie film={activeItem} onPlay={onPlay} />
+        <div className="movie-card__wrap">
+          <div className="movie-card__info">
+            <div className="movie-card__poster">
+              <img src={activeItem.poster} alt={`${activeItem.title} poster`} width="218" height="327" />
+            </div>
+
+            <div className="movie-card__desc">
+              <h2 className="movie-card__title">{activeItem.title}</h2>
+              <p className="movie-card__meta">
+                <span className="movie-card__genre">{activeItem.genre}</span>
+                <span className="movie-card__year">{activeItem.year}</span>
+              </p>
+
+              <div className="movie-card__buttons">
+                <button className="btn btn--play movie-card__button" type="button" onClick={() => history.push(`/player/${activeItem.id}`)}>
+                  <svg viewBox="0 0 19 19" width="19" height="19">
+                    <use xlinkHref="#play-s" />
+                  </svg>
+                  <span>Play</span>
+                </button>
+                {authorizationStatus === `AUTH` ? (
+                  <button className="btn btn--list movie-card__button" type="button" onClick={() => toggleFavorite(activeItem.id)}>
+                    <svg viewBox="0 0 19 20" width="19" height="20">
+                      <use xlinkHref={activeItem.isFavorite ? `#in-list` : `#add`} />
+                    </svg>
+                    <span>My list</span>
+                  </button>
+                ) : (
+                  <Link className="btn btn--list movie-card__button" to="/login">
+                    <svg viewBox="0 0 19 20" width="19" height="20">
+                      <use xlinkHref="#add" />
+                    </svg>
+                    <span>My list</span>
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <div className="page-content">
@@ -68,7 +108,6 @@ const Main = ({activeItem, films, onFilmTitleClick, currentGenre, setGenre, onPl
             films={films}
             onMainPage
             genre={currentGenre !== `All genres` ? currentGenre : undefined}
-            onFilmTitleClick={onFilmTitleClick}
           />
         </section>
 
@@ -83,19 +122,25 @@ Main.propTypes = {
   films: PropTypes.arrayOf(
       IFilm
   ).isRequired,
-  onFilmTitleClick: PropTypes.func.isRequired,
   currentGenre: PropTypes.string.isRequired,
   setGenre: PropTypes.func.isRequired,
-  onPlay: PropTypes.func
+  toggleFavorite: PropTypes.func,
+  authorizationStatus: PropTypes.string.isRequired,
+  userInfo: IUser,
+  history: PropTypes.any
 };
 
 const mapStateToProps = (state) => ({
-  currentGenre: getGenre(state)
+  currentGenre: getGenre(state),
+  authorizationStatus: getAuthStatus(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setGenre(genre) {
     dispatch(ActionCreator.setGenre(genre));
+  },
+  toggleFavorite(filmId) {
+    dispatch(FilmOperation.toggleFavorite(filmId));
   }
 });
 

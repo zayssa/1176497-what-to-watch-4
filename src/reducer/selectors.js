@@ -13,6 +13,10 @@ export const getAuthStatus = (state) => {
   return state[REDUCERS.USER].authorizationStatus;
 };
 
+export const getUserInfo = (state) => {
+  return state[REDUCERS.USER].userInfo;
+};
+
 export const filmsByGenre = createSelector(
     getFilms,
     getGenre,

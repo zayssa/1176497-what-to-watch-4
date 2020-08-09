@@ -54,7 +54,6 @@ FilmsList.propTypes = {
   films: PropTypes.arrayOf(
       IFilm
   ).isRequired,
-  onFilmTitleClick: PropTypes.func.isRequired,
   genre: PropTypes.string,
   onMainPage: PropTypes.bool,
   page: PropTypes.number,

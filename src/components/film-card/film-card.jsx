@@ -34,7 +34,7 @@ class FilmCard extends React.PureComponent {
   render() {
     return (
       <article className="small-movie-card catalog__movies-card">
-        <Link to={`/film/${this.props.film.id}`}>
+        <Link to={`/films/${this.props.film.id}`}>
           <div
             className="small-movie-card__image"
             onMouseEnter={this.delayedHover.bind(this)}
@@ -48,7 +48,7 @@ class FilmCard extends React.PureComponent {
           </div>
         </Link>
         <h3 className="small-movie-card__title">
-          <Link to={`/film/${this.props.film.id}`} className="small-movie-card__link">
+          <Link to={`/films/${this.props.film.id}`} className="small-movie-card__link">
             {this.props.film.title}
           </Link>
         </h3>

@@ -8,7 +8,7 @@ exports[`Render FilmsList 1`] = `
     className="small-movie-card catalog__movies-card"
   >
     <a
-      href="/film/1"
+      href="/films/1"
       onClick={[Function]}
     >
       <div
@@ -40,7 +40,7 @@ exports[`Render FilmsList 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="/film/1"
+        href="/films/1"
         onClick={[Function]}
       >
         Look

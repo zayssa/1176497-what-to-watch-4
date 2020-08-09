@@ -70,10 +70,7 @@ it(`Render Main`, () => {
   const tree = renderer
     .create(<Provider store={store}>
       <Router history={history}>
-        <Main
-          {...data}
-          onFilmTitleClick={() => {}}
-        />
+        <Main {...data} />
       </Router>
     </Provider>)
     .toJSON();

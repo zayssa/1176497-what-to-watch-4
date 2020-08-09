@@ -42,9 +42,7 @@ it(`Render MoviePage`, () => {
             videoLink: `https://some-link`,
             isFavorite: true
           }]}
-          onFilmTitleClick={() => {}}
           api={api}
-          onPlay={() => {}}
           match={{
             params: {
               filmId: `1`
