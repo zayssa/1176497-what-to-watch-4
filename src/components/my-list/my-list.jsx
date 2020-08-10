@@ -70,7 +70,7 @@ class MyList extends PureComponent {
             <h2 className="catalog__title visually-hidden">Catalog</h2>
 
             {this.props.filmsList.length ? (
-              <FilmsList films={this.props.filmsList} onFilmTitleClick={() => {}} />
+              <FilmsList films={this.props.filmsList} />
             ) : null}
           </section>
 

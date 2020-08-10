@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import withFilmsList from "./with-films-list.jsx";
-import MockComponent from "../../../mocks/mock-component.jsx";
+import MockComponent from "../../mocks/mock-component.jsx";
 
 const MockComponentWrapped = withFilmsList(MockComponent);
 

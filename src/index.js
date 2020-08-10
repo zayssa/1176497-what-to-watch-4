@@ -8,8 +8,8 @@ import App from "./components/app/app.jsx";
 import {reducers} from "./reducer/reducer";
 import {Operation as FilmOperation} from "./reducer/films/films";
 import {Operation as UserOperation, ActionCreator as UserActionCreator, AuthorizationStatus} from "./reducer/user/user";
-import withActiveItem from "./components/hocs/with-active-item/with-active-item.jsx";
-import withActiveState from "./components/hocs/with-active-state/with-active-state.jsx";
+import withActiveItem from "./hocs/with-active-item/with-active-item.jsx";
+import withActiveState from "./hocs/with-active-state/with-active-state.jsx";
 
 const api = createAPI(() => {
   store.dispatch(UserActionCreator.requireAuthorization(AuthorizationStatus.NO_AUTH));
@@ -24,6 +24,7 @@ const store = createStore(
 );
 
 store.dispatch(FilmOperation.loadFilms());
+store.dispatch(FilmOperation.loadPromoFilm());
 store.dispatch(UserOperation.checkAuth());
 
 const AppWrapped = withActiveState(withActiveItem(App));

@@ -5,6 +5,10 @@ export const getFilms = (state) => {
   return state[REDUCERS.FILMS].films;
 };
 
+export const getPromoFilm = (state) => {
+  return state[REDUCERS.FILMS].promoFilm;
+};
+
 export const getGenre = (state) => {
   return state[REDUCERS.CURRENT_GENRE].currentGenre;
 };

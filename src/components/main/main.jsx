@@ -10,8 +10,7 @@ import {getGenre, getAuthStatus} from "../../reducer/selectors";
 import SiteHeader from "../site-header/site-header.jsx";
 import FilmsList from "../films-list/films-list.jsx";
 import {GenresList} from "../genres-list/genres-list.jsx";
-import withPage from "../hocs/with-page/with-page.jsx";
-import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
+import withPage from "../../hocs/with-page/with-page.jsx";
 import {SiteFooter} from "../site-footer/site-footer.jsx";
 
 import {IFilm} from "../../types/film";
@@ -22,7 +21,7 @@ const Main = ({activeItem, films, currentGenre, setGenre, authorizationStatus, t
   const genres = Array.from(new Set(films.map((film) => (film.genre))));
   genres.unshift(`All genres`);
 
-  const FilmsListWrapped = withActiveItem(withPage(FilmsList));
+  const FilmsListWrapped = withPage(FilmsList);
 
   return (
     <>

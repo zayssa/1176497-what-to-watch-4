@@ -13,7 +13,7 @@ const DetailsTab = ({film}) => {
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Starring</strong>
-          <span className="movie-card__details-value">{film.actors}</span>
+          <span className="movie-card__details-value">{film.actors.reduce((acc, actor) => `${acc}, ${actor}`)}</span>
         </p>
       </div>
 

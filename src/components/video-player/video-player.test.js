@@ -1,10 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Videoplayer from "./videoplayer.jsx";
+import VideoPlayer from "./video-player.jsx";
 
-it(`Render Videoplayer`, () => {
+it(`Render VideoPlayer`, () => {
   const tree = renderer
-    .create(<Videoplayer
+    .create(<VideoPlayer
       film={{
         id: 1,
         title: `Look`,
