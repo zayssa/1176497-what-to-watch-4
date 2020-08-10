@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render Videopreview 1`] = `
+exports[`Render VideoPreview 1`] = `
 <video
   muted={true}
   poster="img/avatar.jpg"

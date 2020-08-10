@@ -94,11 +94,7 @@ exports[`Render Tabs 1`] = `
     >
       <strong>
         Starring: 
-        Sherilyn Fenn
-        Michelle Rodriguez
-        Patrick Swayze
-        Benedict Cumberbatch
-        Emily Blunt
+        Sherilyn Fenn, Michelle Rodriguez, Patrick Swayze, Benedict Cumberbatch, Emily Blunt
       </strong>
     </p>
   </div>

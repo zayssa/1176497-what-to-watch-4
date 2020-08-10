@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import Videopreview from "../videopreview/videopreview.jsx";
+import VideoPreview from "../video-preview/video-preview.jsx";
 
 import {IFilm} from "../../types/film";
 
@@ -16,7 +16,6 @@ class FilmCard extends React.PureComponent {
   delayedHover() {
     this.timeout = setTimeout(() => {
       if (this.mounted) {
-        this.props.onPosterHover(this.props.film);
         this.props.setActiveState(true);
       }
     }, 1000);
@@ -40,7 +39,7 @@ class FilmCard extends React.PureComponent {
             onMouseEnter={this.delayedHover.bind(this)}
             onMouseLeave={this.clearDelayedHover.bind(this)}
           >
-            <Videopreview
+            <VideoPreview
               preview={this.props.film.preview}
               poster={this.props.film.poster}
               isActive={this.props.isActiveState}
@@ -59,7 +58,6 @@ class FilmCard extends React.PureComponent {
 
 FilmCard.propTypes = {
   film: IFilm.isRequired,
-  onPosterHover: PropTypes.func.isRequired,
   isActiveState: PropTypes.bool,
   setActiveState: PropTypes.func
 };

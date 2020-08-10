@@ -9,6 +9,10 @@ class AddComment extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.DEFAULT_RATING = 5;
+    this.REVIEW_MIN_LIMIT = 50;
+    this.REVIEW_MAX_LIMIT = 400;
+
     this.ratingRef = createRef();
     this.commentTextRef = createRef();
 
@@ -19,7 +23,7 @@ class AddComment extends PureComponent {
     if (evt.target.checked) {
       this.ratingRef.current = evt.target.value;
     }
-    this.props.setActiveState(!!this.ratingRef.current && this.commentTextRef.current.value.length >= 50 && this.commentTextRef.current.value.length <= 400);
+    this.props.setActiveState(this.commentTextRef.current.value.length >= this.REVIEW_MIN_LIMIT && this.commentTextRef.current.value.length <= this.REVIEW_MAX_LIMIT);
   }
 
   handleSubmit(evt) {
@@ -28,7 +32,7 @@ class AddComment extends PureComponent {
     this.props.setActiveItem(``);
 
     this.props.api.post(`/comments/${this.film.id}`, {
-      "rating": this.ratingRef.current,
+      "rating": this.ratingRef.current || this.DEFAULT_RATING,
       "comment": this.commentTextRef.current.value
     }).then(() => {
       this.props.history.push(`/films/${this.film.id}`);
@@ -127,14 +131,14 @@ class AddComment extends PureComponent {
                   <input className="rating__input" id="star-4" type="radio" name="rating" value="4" onChange={this.onRatingChange.bind(this)} />
                   <label className="rating__label" htmlFor="star-4">Rating 4</label>
 
-                  <input className="rating__input" id="star-5" type="radio" name="rating" value="5" onChange={this.onRatingChange.bind(this)} />
+                  <input className="rating__input" id="star-5" type="radio" name="rating" value="5" defaultChecked onChange={this.onRatingChange.bind(this)} />
                   <label className="rating__label" htmlFor="star-5">Rating 5</label>
                 </div>
               </div>
 
               <div className="add-review__text">
                 <textarea className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text" ref={this.commentTextRef} onChange={() => {
-                  this.props.setActiveState(!!this.ratingRef.current && this.commentTextRef.current.value.length >= 50 && this.commentTextRef.current.value.length <= 400);
+                  this.props.setActiveState(this.commentTextRef.current.value.length >= this.REVIEW_MIN_LIMIT && this.commentTextRef.current.value.length <= this.REVIEW_MAX_LIMIT);
                 }} />
                 <div className="add-review__submit">
                   <button className="add-review__btn" type="submit" style={!this.props.isActiveState ? {

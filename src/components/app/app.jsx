@@ -2,17 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, Router} from "react-router-dom";
 import {connect} from "react-redux";
-import {getFilms, getUserInfo} from "../../reducer/selectors";
+import {getFilms, getUserInfo, getPromoFilm} from "../../reducer/selectors";
 import Main from "../main/main.jsx";
 import MoviePage from "../movie-page/movie-page.jsx";
 import SignIn from "../sign-in/sign-in.jsx";
 import AddComment from '../add-comment/add-comment.jsx';
 import MyList from "../my-list/my-list.jsx";
-import Videoplayer from "../videoplayer/videoplayer.jsx";
-import withVideoplayer from "../hocs/with-videoplayer/with-videoplayer.jsx";
-import withActiveState from '../hocs/with-active-state/with-active-state.jsx';
-import withActiveItem from '../hocs/with-active-item/with-active-item.jsx';
-import withFilmsList from '../hocs/with-films-list/with-films-list.jsx';
+import VideoPlayer from "../video-player/video-player.jsx";
+import withVideoPlayer from "../../hocs/with-video-player/with-video-player.jsx";
+import withActiveState from '../../hocs/with-active-state/with-active-state.jsx';
+import withActiveItem from '../../hocs/with-active-item/with-active-item.jsx';
+import withFilmsList from '../../hocs/with-films-list/with-films-list.jsx';
 import history from "../../history";
 import PrivateRoute from "../private-route/private-route.jsx";
 
@@ -20,14 +20,12 @@ import {IFilm} from "../../types/film";
 import {IUser} from "../../types/user";
 
 const App = (props) => {
-  const VideoplayerWrapped = withVideoplayer(Videoplayer);
+  const VideoPlayerWrapped = withVideoPlayer(VideoPlayer);
   const AddCommentWrapped = withActiveItem(withActiveState(AddComment));
   const SignInWrapped = withActiveState(SignIn);
   const MyListWrapped = withFilmsList(MyList);
 
-  const activeItem = props.activeItem || props.films[0];
-
-  return props.films.length && props.userInfo ? (
+  return props.films.length && props.activeItem.id && props.userInfo ? (
     <Router history={history}>
       <Switch>
         <Route path="/login">
@@ -48,7 +46,7 @@ const App = (props) => {
           <MyListWrapped userInfo={props.userInfo} api={props.api} />
         )} />
         <Route path="/player/:filmId" render={(rrdProps) => (
-          <VideoplayerWrapped
+          <VideoPlayerWrapped
             film={props.films.find((film) => film.id.toString() === rrdProps.match.params.filmId)}
             {...rrdProps}
           />
@@ -58,7 +56,7 @@ const App = (props) => {
             {...props}
             {...rrdProps}
             userInfo={props.userInfo}
-            activeItem={activeItem}
+            activeItem={props.activeItem}
           />
         )}/>
       </Switch>
@@ -70,7 +68,10 @@ App.propTypes = {
   films: PropTypes.arrayOf(
       IFilm
   ).isRequired,
-  activeItem: IFilm || null,
+  activeItem: PropTypes.oneOfType([
+    IFilm,
+    () => {}
+  ]),
   setActiveItem: PropTypes.func,
   isActiveState: PropTypes.bool,
   setActiveState: PropTypes.func,
@@ -79,6 +80,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  activeItem: getPromoFilm(state),
   films: getFilms(state),
   userInfo: getUserInfo(state)
 });

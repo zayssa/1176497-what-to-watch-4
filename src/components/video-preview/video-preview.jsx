@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class Videopreview extends React.PureComponent {
+class VideoPreview extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -32,10 +32,10 @@ class Videopreview extends React.PureComponent {
   }
 }
 
-Videopreview.propTypes = {
+VideoPreview.propTypes = {
   preview: PropTypes.string.isRequired,
   poster: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
 };
 
-export default Videopreview;
+export default VideoPreview;

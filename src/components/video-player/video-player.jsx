@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {getHumanizedTime} from "../../utils/get-humanized-time";
 import {IFilm} from '../../types/film';
 
-class Videoplayer extends React.PureComponent {
+class VideoPlayer extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -32,7 +32,7 @@ class Videoplayer extends React.PureComponent {
     this.props.setFullscreen(false);
   }
 
-  initVideoplayer() {
+  initVideoPlayer() {
     this.videoRef.current.play();
   }
 
@@ -87,7 +87,7 @@ class Videoplayer extends React.PureComponent {
           <video
             src={this.props.film.videoLink}
             poster={this.props.film.poster}
-            onLoadedMetadata={this.initVideoplayer.bind(this)}
+            onLoadedMetadata={this.initVideoPlayer.bind(this)}
             onTimeUpdate={this.onTimeUpdate.bind(this)}
             onClick={this.onPlayPauseToggle.bind(this)}
             ref={this.videoRef}
@@ -143,7 +143,7 @@ class Videoplayer extends React.PureComponent {
   }
 }
 
-Videoplayer.propTypes = {
+VideoPlayer.propTypes = {
   film: IFilm,
   isFullscreen: PropTypes.bool,
   setFullscreen: PropTypes.func,
@@ -155,4 +155,4 @@ Videoplayer.propTypes = {
   setPaused: PropTypes.func
 };
 
-export default Videoplayer;
+export default VideoPlayer;

@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import withActiveItem from "./with-active-item.jsx";
-import MockComponent from "../../../mocks/mock-component.jsx";
+import withPage from "./with-page.jsx";
+import MockComponent from "../../mocks/mock-component.jsx";
 
-const MockComponentWrapped = withActiveItem(MockComponent);
+const MockComponentWrapped = withPage(MockComponent);
 
 describe(`WithActiveItem snapshot`, () => {
   it(`should render WithActiveItem component`, () => {

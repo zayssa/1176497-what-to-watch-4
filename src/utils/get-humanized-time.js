@@ -1,4 +1,4 @@
-const withLeadingZero = (num) => {
+const addLeadingZero = (num) => {
   return `0${num}`.slice(-2);
 };
 
@@ -13,7 +13,7 @@ export const getHumanizedTime = (runtime) => {
     result += `${hours}:`;
   }
 
-  result += `${withLeadingZero(minutes)}:${withLeadingZero(seconds)}`;
+  result += `${addLeadingZero(minutes)}:${addLeadingZero(seconds)}`;
 
   return result;
 };

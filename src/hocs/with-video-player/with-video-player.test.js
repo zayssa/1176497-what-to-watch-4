@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import withActiveState from "./with-active-state.jsx";
-import MockComponent from "../../../mocks/mock-component.jsx";
+import withVideoPlayer from "./with-video-player.jsx";
+import MockComponent from "../../mocks/mock-component.jsx";
 
-const MockComponentWrapped = withActiveState(MockComponent);
+const MockComponentWrapped = withVideoPlayer(MockComponent);
 
 describe(`WithActiveItem snapshot`, () => {
   it(`should render WithActiveItem component`, () => {

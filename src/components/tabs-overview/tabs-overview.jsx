@@ -18,7 +18,7 @@ const OverviewTab = ({film}) => {
 
         <p className="movie-card__director"><strong>Director: {film.director}</strong></p>
 
-        <p className="movie-card__starring"><strong>Starring: {film.actors}</strong></p>
+        <p className="movie-card__starring"><strong>Starring: {film.actors.reduce((acc, actor) => `${acc}, ${actor}`)}</strong></p>
       </div>
     </>
   );

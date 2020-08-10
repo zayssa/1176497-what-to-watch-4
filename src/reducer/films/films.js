@@ -3,11 +3,13 @@ import {adaptFilm, adaptFilmsList} from "../../utils/adapter-film";
 
 const initialState = {
   films: [],
-  comments: {}
+  comments: {},
+  promoFilm: {}
 };
 
 const ActionType = {
   GET_FILMS: `GET_FILMS`,
+  GET_PROMO_FILM: `GET_PROMO_FILM`,
   TOGGLE_FAVORITE: `TOGGLE_FAVORITE`,
 };
 
@@ -15,6 +17,10 @@ const ActionCreator = {
   loadFilms: (films) => ({
     type: ActionType.GET_FILMS,
     payload: films
+  }),
+  loadPromoFilm: (film) => ({
+    type: ActionType.GET_PROMO_FILM,
+    payload: film
   }),
   toggleFavorite: (film) => ({
     type: ActionType.TOGGLE_FAVORITE,
@@ -27,6 +33,12 @@ const Operation = {
     return api.get(`/films`)
       .then((response) => {
         dispatch(ActionCreator.loadFilms(adaptFilmsList(response.data)));
+      });
+  },
+  loadPromoFilm: () => (dispatch, getState, api) => {
+    return api.get(`/films/promo`)
+      .then((response) => {
+        dispatch(ActionCreator.loadPromoFilm(adaptFilm(response.data)));
       });
   },
   toggleFavorite: (filmId) => (dispatch, getState, api) => {
@@ -46,6 +58,8 @@ const reducer = (state = initialState, action) => {
         comments[film.id] = [];
       });
       return extend(state, {films: action.payload, comments});
+    case ActionType.GET_PROMO_FILM:
+      return extend(state, {promoFilm: action.payload});
     case ActionType.TOGGLE_FAVORITE:
       return extend(state, {films: state.films.map((film) => (
         film.id === action.payload.id ? action.payload : film

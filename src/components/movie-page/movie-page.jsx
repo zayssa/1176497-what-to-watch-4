@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import Tabs from "../tabs/tabs.jsx";
 import FilmsList from "../films-list/films-list.jsx";
-import withActiveItem from "../hocs/with-active-item/with-active-item.jsx";
+import withActiveItem from "../../hocs/with-active-item/with-active-item.jsx";
 import SiteHeader from "../site-header/site-header.jsx";
 import {SiteFooter} from "../site-footer/site-footer.jsx";
 import {Operation as FilmOperation} from "../../reducer/films/films";

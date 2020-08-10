@@ -9,6 +9,7 @@ it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
     films: [],
     comments: {},
+    promoFilm: {}
   });
 });
 
@@ -16,12 +17,14 @@ it(`Reducer should update films list by load films`, () => {
   expect(reducer({
     films: [],
     comments: {},
+    promoFilm: {}
   }, {
     type: ActionType.GET_FILMS,
     payload: films,
   })).toEqual({
     films,
     comments,
+    promoFilm: {}
   });
 });
 

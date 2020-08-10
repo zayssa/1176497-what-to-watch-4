@@ -36,16 +36,16 @@ const SiteHeader = ({authorizationStatus, userInfo}) => {
   );
 };
 
+SiteHeader.propTypes = {
+  authorizationStatus: PropTypes.string.isRequired,
+  userInfo: IUser
+};
+
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthStatus(state)
 });
 
 const mapDispatchToProps = () => ({});
-
-SiteHeader.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired,
-  userInfo: IUser
-};
 
 export {SiteHeader};
 export default connect(mapStateToProps, mapDispatchToProps)(SiteHeader);

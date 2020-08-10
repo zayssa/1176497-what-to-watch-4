@@ -93,6 +93,13 @@ class SignIn extends PureComponent {
   }
 }
 
+SignIn.propTypes = {
+  authorizationStatus: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  isActiveState: PropTypes.bool,
+  setActiveState: PropTypes.func
+};
+
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthStatus(state)
 });
@@ -102,13 +109,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(UserOperation.login(authData, onFail));
   }
 });
-
-SignIn.propTypes = {
-  authorizationStatus: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  isActiveState: PropTypes.bool,
-  setActiveState: PropTypes.func
-};
 
 export {SignIn};
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
